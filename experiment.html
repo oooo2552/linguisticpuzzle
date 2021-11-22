@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="jp">
+
+<head>
+  <script src="jspsych-6.3.1/jspsych.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-preload.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-image-keyboard-response.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-html-button-response.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-webgazer-init-camera.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-webgazer-calibrate.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-webgazer-validate.js"></script>
+  <script src="js/webgazer/webgazer.js"></script>
+  <script src="jspsych-6.3.1/extensions/jspsych-ext-webgazer.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-canvas-button-response.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-serial-reaction-time-mouse.js"></script>
+
+  <script src="jspsych-6.3.1/plugins/color-picker.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+  <script src="js/app.js"></script>
+  <script src="js/jscolor.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="jspsych-6.3.1/css/jspsych.css">
+
+  <!-- Required meta tags
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">-->
+
+
+
+
+  <title>言語学パズル実験</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /*create timeline*/ //開啟了timeline之後，就會只跑timeline
+  var timeline = []; //initialize
+
+  
+  //// TODO:  generate subject ID
+  var subject_id = '001'; //被験者の番号を入力してください
+
+  // set up condition of experiment
+  var condition_assignment = 'pretest'; //予備実験を行います。
+
+  // record the condition assignment in the jsPsych data
+  // this adds a property called 'subject' and a property called 'condition' to every trial
+  jsPsych.data.addProperties({
+    subject: subject_id,
+    condition: condition_assignment
+  });
+
+  /* define welcome message trial */
+  var welcome = {
+    type: 'html-button-response',
+    stimulus: `
+    <div class = "container">
+    <h1>言語パズルへようこそ～ </h1>
+    <h2>言語パズルは？</h2>
+    <p>言語パズルは「言語学オリンピック」という国際科学オリンピックで使っている問題です。問題は謎解きが好きなら確実に楽しめる，言語を題材にします。</p>
+    <h2>問題の特徴は？</h2>
+    <p>問題は実際の言語研究で行われる分析に似ていて、
+    <strong>「初めて見る言語のデータから隠れた法則を解き明かす」</strong>というものです。
+    謎解きやパズルのように、分析力、情報処理能力、論理的思考、試行錯誤する力が求められます。
+    この点で、数学やプログラミングと根本となる能力が似ていると思われます。</p>
+<p>言語学オリンピックの問題の特筆すべき点は、問題の<strong>自己完結性</strong>です。
+<strong>答案を書くために必要な情報はすべて問題の中に隠されています。</strong>
+したがって「暗記力」は必要ありません。語学試験や弁論大会とは異なり、
+英語やその他特定の言語を話したり書いたりするための運用能力は求められません。
+言語の知識はむしろ、言語分析にとって重要な「相対的な世界観」を構築するのに役立ちます。</p>
+<p>出典：<a href="https://iolingjapan.org/information/">日本言語学オリンピック</a></p>
+</div>`,
+    choices: ['実験開始'],
+    post_trial_gap: 1000
+  };
+
+  timeline.push(welcome);
+
+
+  // TODO: create camera
+  var camera_instructions = {
+    type: 'html-button-response',
+    stimulus: `
+      <p>This experiment uses your camera for eye tracking.</p>
+      <p>この実験は、眼球運動の追跡するために、あなたのカメラを使っています。</p>
+      <p>In order to participate you must allow the experiment to use your camera.</p>
+      <p>そのために、カメラのアクセス権の付与をお願いします。</p>
+      <p>You will be prompted to do this on the next screen.</p>
+      <p>同意すれば、次の画面に移動してください。</p>
+      <p>If you do not want to permit the experiment to use your camera, please close the page.</p>
+      <p>カメラのアクセス許可を拒否したい場合、この画面を閉じてください。</p>
+    `,
+    choices: ['クリックして開始'],
+    post_trial_gap: 1000
+  }
+  timeline.push(camera_instructions);
+
+  var init_camera = {
+    type: 'webgazer-init-camera'
+  }
+  timeline.push(init_camera);
+
+  var calibration_instructions = {
+    type: 'html-button-response',
+    stimulus: `
+    <p>良かったです！　これでウェブカメラから、あなたの目の画像を使って画面上の位置に変換することができます。
+    そのために、アイトラッキング（視線計測）を校正します。</p>
+    <p>Great! Now the eye tracker will be calibrated to translate the image of your eyes from the webcam to a location on your screen.</p>
+    <p>校正するために、シリーズのドットをクリックするタスクをしてください。</p>
+    <p>To do this, you need to click a series of dots.</p>
+    <p>頭を維持して、ドットが出たら、このドット自体を見ながらクリックしてください。</p>
+    <p>Keep your head still, and click on each dot as it appears. Look at the dot as you click it.</p>
+  `,
+    choices: ['クリックして開始'],
+    post_trial_gap: 1000
+  }
+  timeline.push(calibration_instructions);
+
+
+  var calibration = {
+    type: 'webgazer-calibrate'
+  }
+  timeline.push(calibration);
+
+
+  var validation_instructions = {
+    type: 'html-button-response',
+    stimulus: `
+      <p>アイトラッキングの正しさを見ましょう。</p>
+      <p>Let's see how accurate the eye tracking is. </p>
+      <p>頭を固定して、目だけを動かして、ドットが出た際に注目してください</p>
+      <p>Keep your head still, and move your eyes to focus on each dot as it appears.</p>
+      <p>ドットをクリックする必要がありません。目を動かすだけで、ドットを見てください。</p>
+      <p>You do not need to click on the dots. Just move your eyes to look at the dots.</p>
+    `,
+    choices: ['クリックして開始'],
+    post_trial_gap: 1000
+  }
+  timeline.push(validation_instructions);
+
+
+  var validation = {
+    type: 'webgazer-validate',
+    validation_points: [
+      [25, 25],
+      [25, 75],
+      [75, 25],
+      [75, 75]
+    ],
+    show_validation_data: true
+  }
+  timeline.push(validation);
+
+
+  var task_instructions = {
+    type: 'html-button-response',
+    stimulus: `
+    <p>We're ready for the task now.</p>
+    <p>練習問題をはじめましょう！</p>
+
+  `,
+    choices: ['始め'],
+    post_trial_gap: 1000
+  }
+  timeline.push(task_instructions);
+
+  // TODO: how to storage camera data
+
+  var instructions_before_practice = {
+    type: "html-keyboard-response",
+    stimulus: `
+        <div class="contianer">
+            <div class="row articleRow">
+                <div class="col-lg-12 col-md-12 col-sm-12 articleFrame">
+                <p><strong>本実験で提示している問題の文字は、着色の機能があります。直接に文字自体の上でクリックして、色を選んでください。</strong></p>
+
+                    <h3>注意事項</h3>
+
+                    <hr>
+                    <div class="abstract paragraph">
+                        <p> 1．本実験は時間制限がありません。</p>
+                        <p>2．言語パズルの問題は2つ解決策があります。1つ目は、言語の構造の理解です。2つ目は問題を解くことです。</p>
+                        <p>3．問題を早く解決するために、まず、言語の構造を理解すればよいと言われています。構造分析する時、このウェイブサイトの着色の機能を利用してください。</p>
+                        <p>4. 問題を解く際に、問題の番号をクリックして、問題のヒントが出られます。ヒントを活かして、答えを入力してください。</p>
+                        <p>5.　困ったら、クエスチョンマークのボタンをクリックしてください。</p>
+                        <p>6．最後、問題を解いたと思ったら、提出のボタンをクリックしてください。
+                        <p>以上、問題なければ、何かキーを押して下さい。練習問題が始まります。</p>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        `,
+    post_trial_gap: 500
+  };
+
+  timeline.push(instructions_before_practice);
+
+
+  var practice1 = {
+    type: "color-picker",
+    stimulus: "practice1", //練習問題を示す
+    choices: ['提出'],
+  };
+
+  timeline.push(practice1);
+
+
+
+  var instructions_after_practice = {
+    type: "html-keyboard-response",
+    stimulus: `
+        <div class="contianer">
+            <div class="row articleRow">
+                <div class="col-lg-12 col-md-12 col-sm-12 articleFrame">
+                    <p>練習問題は終わりました。正解は「それはリンゴです。」</p>
+                    <p>本番の問題も同じようにやってみてください。</p>
+                    <p>本番の実験を開始する前に、もう一度注意事項を読んでください。</p>
+
+                    <h3>注意事項</h3>
+
+                    <hr>
+                    <div class="abstract paragraph">
+                        <p> 1．本実験は時間制限がありません。</p>
+                        <p>2．言語パズルの問題は2つ解決策があります。1つ目は、言語の構造の理解です。2つ目は問題を解くことです。</p>
+                        <p>3．問題を早く解決するために、まず、言語の構造を理解すればよいと言われています。構造分析する時、このウェイブサイトの着色の機能を利用してください。</p>
+                        <p>4. 問題を解く際に、問題の番号をクリックして、問題のヒントが出られます。ヒントを活かして、答えを入力してください。</p>
+                        <p>5.　困ったら、クエスチョンマークのボタンをクリックしてください。</p>
+                        <p>6．最後、問題を解いたと思ったら、提出のボタンをクリックしてください。
+
+　　　　　　　　　　　　　
+                        <p>以上、問題なければ、何かキーを押して下さい。正式問題が始まります。</p>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        `,
+    post_trial_gap: 500
+  };
+
+  timeline.push(instructions_after_practice);
+
+  /* start the experiment */
+  var problem1 = {
+    type: "color-picker",
+    stimulus: "problem1", //本番の問題を示す
+    choices: ['提出'],
+  };
+
+  timeline.push(problem1);
+
+
+
+
+  function saveData(name, data) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({
+      filename: name,
+      filedata: data
+    }));
+  }
+
+  function answerStorage() {
+    // Gets input value
+    var final_answers = 'answer3', answer= [];
+    for (var num_of_answer = 1; num_of_answer <= 6; ++num_of_answer){
+      final_answers = 'answer3';
+      final_answers = final_answers + num_of_answer;
+      answer[num_of_answer] = document.getElementById(final_answers).value;
+      localStorage.setItem("answer"+num_of_answer,answer[num_of_answer]);
+
+    }
+
+    var table_answer = 'table', table = [], count = 0;
+    for (var row = 1; row <= 6; ++row){
+      for (var col = 1; col <= 6; ++col){
+        table_answer = 'table';
+        count = 10*row + col;
+        table_answer = table_answer + count;
+        table[count]= document.getElementById(table_answer).value;
+        localStorage.setItem(table_answer, table[count]);
+      }
+    }
+
+
+    //To see the answers
+    console.log(answer);
+    console.log(table);
+    user_answers = answer + table
+    saveTextAsFile(`answer_data${subject_id}.txt`, user_answers);   //please use subject_id
+
+  }
+
+  function saveTextAsFile( _fileName, _text ) {
+      var textFileAsBlob = new Blob([_text], {type:'text/plain'});
+
+      var downloadLink = document.createElement("a");
+      downloadLink.download = _fileName;
+      downloadLink.innerHTML = "Download File";
+      if (window.webkitURL != null) {
+          // Chrome allows the link to be clicked
+          // without actually adding it to the DOM.
+          downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+      } else {
+          // Firefox requires the link to be added to the DOM
+          // before it can be clicked.
+          downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+          downloadLink.onclick = destroyClickedElement;
+          downloadLink.style.display = "none";
+          document.body.appendChild(downloadLink);
+      }
+
+      downloadLink.click();
+  }
+
+  function destroyClickedElement(event) {
+      document.body.removeChild(event.target);
+  }
+
+
+  // ///////////////////////////////////
+  // ////record and save video////////////
+  // /////////////////
+  // let camera_button = document.querySelector("#start-camera");
+  // let video = document.querySelector("#video");　　//如何整合兩邊的video
+  // let start_button = document.querySelector("#start-record");
+  // let stop_button = document.querySelector("#stop-record");
+  // let download_link = document.querySelector("#download-video");
+  //
+  // let camera_stream = null;
+  // let media_recorder = null;
+  // let blobs_recorded = [];
+  //
+  // camera_button.addEventListener('click', async function() {
+  //    	camera_stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+  // 	video.srcObject = camera_stream;
+  // });
+  //
+  // start_button.addEventListener('click', function() {
+  //     // set MIME type of recording as video/webm
+  //     media_recorder = new MediaRecorder(camera_stream, { mimeType: 'video/webm' });
+  //
+  //     // event : new recorded video blob available
+  //     media_recorder.addEventListener('dataavailable', function(e) {
+  // 		blobs_recorded.push(e.data);
+  //     });
+  //
+  //     // event : recording stopped & all blobs sent
+  //     media_recorder.addEventListener('stop', function() {
+  //     	// create local object URL from the recorded video blobs
+  //     	let video_local = URL.createObjectURL(new Blob(blobs_recorded, { type: 'video/webm' }));
+  //     	download_link.href = video_local;
+  //     });
+  //
+  //     // start recording with each recorded blob having 1 second video
+  //     media_recorder.start(1000);
+  // });
+  //
+  // stop_button.addEventListener('click', function() {
+  // 	media_recorder.stop();
+  // });
+
+  // call the saveData function after the experiment is over
+  // TODO: 自動化實驗者的ID紀錄
+
+
+
+  /*tell jspsych to start the timeline*/
+  jsPsych.init({
+    timeline: timeline,
+    //  timeline: [instructions_before_practice,practice1,instructions_after_practice,problem1],
+    extensions: [{
+      type: 'webgazer'
+    }],
+    on_finish: function() {
+      //document.write('<button id="stop-record">Stop Recording</button><a id="download-video" download="test.mp4">Download Video</a>');
+
+      window.alert('お疲れ様でした！実験は終了です。ありがとうございました。');
+      jsPsych.data.displayData();
+      var interaction_data = jsPsych.data.getInteractionData();
+      // log data to console in json format
+      console.log(interaction_data.json());
+      jsPsych.data.get().localSave('json', `data${subject_id}.json`);
+
+    }
+  })
+</script>
+
+
+</html>
