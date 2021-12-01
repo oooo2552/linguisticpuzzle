@@ -135,6 +135,9 @@ jsPsych.plugins['survey-text'] = (function() {
       }
       html += '</div>';
     }
+    
+    
+
 
     // add submit button
     html += '<input type="submit" id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text" value="'+trial.button_label+'"></input>';
@@ -159,6 +162,13 @@ jsPsych.plugins['survey-text'] = (function() {
         var q_element = document.querySelector('#jspsych-survey-text-'+index).querySelector('textarea, input'); 
         var val = q_element.value;
         var name = q_element.attributes['data-name'].value;
+        
+        if(index == 0){
+          var subject_id = document.getElementById("input-0").value;
+          //console.log(subject_id);
+        }
+
+
         if(name == ''){
           name = id;
         }        
@@ -173,6 +183,8 @@ jsPsych.plugins['survey-text'] = (function() {
       };
 
       display_element.innerHTML = '';
+      //var subject_id = document.getElementById("input-0");
+      //console.log(subject_id);
 
       // next trial
       jsPsych.finishTrial(trialdata);

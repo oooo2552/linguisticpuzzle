@@ -114,7 +114,7 @@ jsPsych.plugins["html-button-response"] = (function() {
       display_element.querySelector('#jspsych-html-button-response-button-' + i).addEventListener('click', function(e){
         var choice = e.currentTarget.getAttribute('data-choice'); // don't use dataset for jsdom compatibility
         after_response(choice);
-        console.log(choice+'button is clicked');
+        //console.log(choice+'button is clicked'); //which button is clicked
       });
     }
 
@@ -146,13 +146,19 @@ jsPsych.plugins["html-button-response"] = (function() {
       }
       
       if (trial.response_ends_trial) {
-        console.log(trial.response_ends_trial+"we are goging to end the trail");
+        
         end_trial();
       }
     };
 
     // function to end trial when it is time
     function end_trial() {
+
+      console.log("this trial is end");
+      var date = new Date();
+        var rightnow = [date.getFullYear(), date.getMonth(), date.getDate(), 
+                                date.getHours(), date.getMinutes(), date.getSeconds(),date.getMilliseconds()]
+        console.log("End the trail at ", rightnow);
 
       // kill any remaining setTimeout handlers
       jsPsych.pluginAPI.clearAllTimeouts();
@@ -161,12 +167,13 @@ jsPsych.plugins["html-button-response"] = (function() {
       var trial_data = {
         rt: response.rt,
         stimulus: trial.stimulus,
-        response: response.button
+        response: response.button,
+        time: rightnow
       };
 
       // clear the display
       display_element.innerHTML = '';
-      console.log("this trial is end");
+      
       // move on to the next trial
       jsPsych.finishTrial(trial_data);
     };

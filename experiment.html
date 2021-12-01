@@ -7,6 +7,7 @@
   <script src="jspsych-6.3.1/plugins/jspsych-image-keyboard-response.js"></script>
   <script src="jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js"></script>
   <script src="jspsych-6.3.1/plugins/jspsych-html-button-response.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-survey-text.js"></script>
   <script src="jspsych-6.3.1/plugins/jspsych-webgazer-init-camera.js"></script>
   <script src="jspsych-6.3.1/plugins/jspsych-webgazer-calibrate.js"></script>
   <script src="jspsych-6.3.1/plugins/jspsych-webgazer-validate.js"></script>
@@ -50,9 +51,8 @@
   var timeline = []; //initialize
 
   
-  //// TODO:  generate subject ID
-  var subject_id = '001'; //被験者の番号を入力してください
 
+//console.log(subject_id);
   // set up condition of experiment
   var condition_assignment = 'pretest'; //予備実験を行います。
 
@@ -88,6 +88,25 @@
   };
 
   timeline.push(welcome);
+
+  ////basic data from subject
+  //// TODO:  generate subject ID
+  var subject_id = Math.floor(100000 + Math.random() * 900000);; //被験者の番号はランダムの六つの数字
+  var survey = {
+  type: "survey-text",
+  questions: [
+    {prompt: '被験者ID(eg.001)', name: 'SubjectId'},
+    {prompt: '名前(English)', name: 'Name'},
+    {prompt: '年齢', name: 'Age'},
+    {prompt: '性別(female/male)', name: 'Gender'}
+  ]
+}
+timeline.push(survey);
+console.log(subject_id);
+
+//id = document.getElementById("input-SubjectId");
+//console.log(document.getElementById("input-0").value);
+
 
 
   // TODO: create camera
@@ -312,6 +331,20 @@
     saveTextAsFile(`answer_data${subject_id}.txt`, user_answers);   //please use subject_id
 
   }
+
+
+  function provide_time(clicked_id){
+  const date = new Date();
+        let rightnow = [date.getFullYear(), date.getMonth(), date.getDate(), 
+                                date.getHours(), date.getMinutes(), date.getSeconds(),date.getMilliseconds()]
+        console.log(clicked_id, "is clicked.  ", "Current time: ", rightnow);
+  localStorage.setItem("current_time", rightnow);
+}
+
+
+
+
+
 
   function saveTextAsFile( _fileName, _text ) {
       var textFileAsBlob = new Blob([_text], {type:'text/plain'});

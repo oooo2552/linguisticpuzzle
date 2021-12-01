@@ -129,7 +129,7 @@ jsPsych.plugins["html-keyboard-response"] = (function() {
       }
 
       if (trial.response_ends_trial) {
-        console.log("start at", time);
+        console.log("end at", time);
         end_trial();
       }
     };
