@@ -155,9 +155,16 @@ jsPsych.plugins["html-button-response"] = (function() {
     function end_trial() {
 
       console.log("this trial is end");
-      var date = new Date();
-        var rightnow = [date.getFullYear(), date.getMonth(), date.getDate(), 
-                                date.getHours(), date.getMinutes(), date.getSeconds(),date.getMilliseconds()]
+      const d = new Date();
+      let h = d.getHours();
+      let m = d.getMinutes();
+      let s = d.getSeconds();
+      let ms = d.getMilliseconds();
+      let rightnow = h + ":" + m + ":" + s + ":" + ms;
+
+      // var date = new Date();
+      //   var rightnow = [date.getFullYear(), date.getMonth(), date.getDate(), 
+      //                           date.getHours(), date.getMinutes(), date.getSeconds(),date.getMilliseconds()]
         console.log("End the trail at ", rightnow);
 
       // kill any remaining setTimeout handlers

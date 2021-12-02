@@ -101,7 +101,7 @@ jsPsych.plugins["color-picker"] = (function() {
       //html += '</div>'
 
       html += '<br><br><br><p>Q1:日本語に訳しなさい</p>'
-      html += '<p><button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" id= "hint02" onclick = "provide_time(this.id)>Q1?</button></p>'
+      html += '<p><button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" id= "hint02" onclick = "provide_time(this.id)">Q1?</button></p>'
       html += '<div class="col"><div class="collapse multi-collapse" id="multiCollapseExample2"><div class="card card-body">'
       html += '自分が着色している結果に参考して、答えてみてください。'
       html += '</div></div></div> '
@@ -132,7 +132,7 @@ jsPsych.plugins["color-picker"] = (function() {
       html += '</div></div>'
 
       // ここから、ヒントのコードです。
-      html += '<div class="col"><a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" id= "hint1" onclick = "provide_time(this.id)>ヒント1</a>'
+      html += '<div class="col"><a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" id= "hint1" onclick = "provide_time(this.id)">ヒント1</a>'
       html += '<div class="collapse multi-collapse" id="multiCollapseExample1">'
       html += '<div class="card card-body">2番と8番の文の中で、同じところを探して着色してください。</div>'
       html += '</div>'
@@ -142,7 +142,7 @@ jsPsych.plugins["color-picker"] = (function() {
       html += '<div class="card card-body">そして、5番を見て、2番と8番の文と比べると、同じところを着色してください。</div>'
       html += '</div>'
 
-      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3" id= "hint3" onclick = "provide_time(this.id)>ヒント3</a>'
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3" id= "hint3" onclick = "provide_time(this.id)">ヒント3</a>'
       html += '<div class="collapse multi-collapse" id="multiCollapseExample3">'
       html += '<div class="card card-body">次は、3番を見て、この前着色した文と比べて、似ている文字のところも同じ色を付けてください。</div>'
       html += '</div>'
@@ -152,29 +152,29 @@ jsPsych.plugins["color-picker"] = (function() {
       html += '<div class="card card-body">2、3、6、8、10番の文は、過去形なので、5番の文を比べると、辞書形のところを探しましょう。</div>'
       html += '</div>'
 
-      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample5" role="button" aria-expanded="false" aria-controls="multiCollapseExample5" id= "hint5" onclick = "provide_time(this.id)>ヒント5</a>'
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample5" role="button" aria-expanded="false" aria-controls="multiCollapseExample5" id= "hint5" onclick = "provide_time(this.id)">ヒント5</a>'
       html += '<div class="collapse multi-collapse" id="multiCollapseExample5">'
       html += '<div class="card card-body">7番と9番の文も、他の文と比べて、同じ部分で同じ色を付けてください。</div>'
       html += '</div>'
 
-      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample6" role="button" aria-expanded="false" aria-controls="multiCollapseExample6" id= "hint6" onclick = "provide_time(this.id)>ヒント6</a>'
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample6" role="button" aria-expanded="false" aria-controls="multiCollapseExample6" id= "hint6" onclick = "provide_time(this.id)">ヒント6</a>'
       html += '<div class="collapse multi-collapse" id="multiCollapseExample6">'
       html += '<div class="card card-body">動詞の辞書形と変化形を表示するところはきちんと分けていますか。</div>'
       html += '</div>'
 
 
-      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample7" role="button" aria-expanded="false" aria-controls="multiCollapseExample7" id= "hint7" onclick = "provide_time(this.id)>ヒント7</a>'
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample7" role="button" aria-expanded="false" aria-controls="multiCollapseExample7" id= "hint7" onclick = "provide_time(this.id)">ヒント7</a>'
       html += '<div class="collapse multi-collapse" id="multiCollapseExample7">'
       html += '<div class="card card-body">残っている1番と4番は、他の文と同じところで同じ色を付けて下さい。</div>'
       html += '</div>'
 
 
-      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample8" role="button" aria-expanded="false" aria-controls="multiCollapseExample8" id= "hint8" onclick = "provide_time(this.id)>ヒント8</a>'
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample8" role="button" aria-expanded="false" aria-controls="multiCollapseExample8" id= "hint8" onclick = "provide_time(this.id)">ヒント8</a>'
       html += '<div class="collapse multi-collapse" id="multiCollapseExample8">'
       html += '<div class="card card-body">動詞のところも、同じ動詞で同じ色を付けましょう。</div>'
       html += '</div>'
 
-      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample9" role="button" aria-expanded="false" aria-controls="multiCollapseExample9" id= "hint9" onclick = "provide_time(this.id)>ヒント9</a>'
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample9" role="button" aria-expanded="false" aria-controls="multiCollapseExample9" id= "hint9" onclick = "provide_time(this.id)">ヒント9</a>'
       html += '<div class="collapse multi-collapse" id="multiCollapseExample9">'
       html += '<div class="card card-body">最後は、述語の部分を無視して、主語と目的語を見てみて、同じところで色を付けてください。</div>'
       html += '</div>'
@@ -231,13 +231,13 @@ jsPsych.plugins["color-picker"] = (function() {
         html += '</tbody></table>'
 
 
-      html +=          '<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample21" role="button" aria-expanded="false" aria-controls="multiCollapseExample21" id= "hint21" onclick = "provide_time(this.id)>この表は？</a>'
+      html +=          '<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample21" role="button" aria-expanded="false" aria-controls="multiCollapseExample21" id= "hint21" onclick = "provide_time(this.id)">この表は？</a>'
       html +=             '<div class="collapse multi-collapse" id="multiCollapseExample21">'
       html +=               '<div class="card card-body">'
       html +=                 '主語と目的語をわかるために、表を作りましょう！まず、今は知っている主語と目的語の組み合わせを入力しましょう！'
       html +=               '</div>'
       html +=             '</div>'
-      html +=             '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample22" aria-expanded="false" aria-controls="multiCollapseExample22" id= "hint22" onclick = "provide_time(this.id)>表の書き方のヒント</button>'
+      html +=             '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample22" aria-expanded="false" aria-controls="multiCollapseExample22" id= "hint22" onclick = "provide_time(this.id)">表の書き方のヒント</button>'
       html +=             '<div class="collapse multi-collapse" id="multiCollapseExample22">'
       html +=               '<div class="card card-body">'
       html +=                 '知っている主語と目的語は入力した後、表の他の枠も同じ規則で埋めてみてください。'
@@ -254,7 +254,7 @@ jsPsych.plugins["color-picker"] = (function() {
       html +=           '<p><strong>日本語に訳しなさい:</strong></p>'
       html +=           '<p>1. nɤ ʒip ku ne</p>'
       html +=           '<input type = "answer" id = "answer31" />'
-      html +=           '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample31" role="button" aria-expanded="false" aria-controls="multiCollapseExample31" id= "hint31" onclick = "provide_time(this.id)>Q1ヒント</a>'
+      html +=           '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample31" role="button" aria-expanded="false" aria-controls="multiCollapseExample31" id= "hint31" onclick = "provide_time(this.id)">Q1ヒント</a>'
       html +=           '<div class="collapse multi-collapse" id="multiCollapseExample31">'
       html +=             '<div class="card card-body">'
       html +=               '質問1の文は、上記の例の文と比べると、知っている部分がありますね。そこから解きましょう。'
@@ -264,7 +264,7 @@ jsPsych.plugins["color-picker"] = (function() {
 
       html +=           '<p>2. ati kəmə nirum lapkʰi tʰi ne</p>'
       html +=           '<input type = "answer" id = "answer32" />'
-      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample32" aria-expanded="false" aria-controls="multiCollapseExample32" id= "hint32" onclick = "provide_time(this.id)>Q2ヒント</button>'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample32" aria-expanded="false" aria-controls="multiCollapseExample32" id= "hint32" onclick = "provide_time(this.id)">Q2ヒント</button>'
       html +=           '<div class="collapse multi-collapse" id="multiCollapseExample32">'
       html +=             '<div class="card card-body">'
       html +=               '質問2の文も、上記の例文と同じところがありますが、主語と目的語のところは例文を利用して考えましょう。'
@@ -274,7 +274,7 @@ jsPsych.plugins["color-picker"] = (function() {
 
       html +=           '<p>3. tarum kəmə nuʔrum cʰam ran ne</p>'
       html +=           '<input type = "answer" id = "answer33" />'
-      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample33" aria-expanded="false" aria-controls="multiCollapseExample33" id= "hint33" onclick = "provide_time(this.id)>Q3ヒント</button>'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample33" aria-expanded="false" aria-controls="multiCollapseExample33" id= "hint33" onclick = "provide_time(this.id)">Q3ヒント</button>'
       html +=           '<div class="collapse multi-collapse" id="multiCollapseExample33">'
       html +=             '<div class="card card-body">'
       html +=               '質問3の解き方も同じ、例文を利用して解きましょう。'
@@ -284,7 +284,7 @@ jsPsych.plugins["color-picker"] = (function() {
 
       html +=           '<p>4. nirum kəmə tarum lan ki ne</p>'
       html +=           '<input type = "answer" id = "answer34" />'
-      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample34" aria-expanded="false" aria-controls="multiCollapseExample34" id= "hint34" onclick = "provide_time(this.id)>Q4ヒント</button>'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample34" aria-expanded="false" aria-controls="multiCollapseExample34" id= "hint34" onclick = "provide_time(this.id)">Q4ヒント</button>'
       html +=           '<div class="collapse multi-collapse" id="multiCollapseExample34">'
       html +=             '<div class="card card-body">'
       html +=               '主語と動詞の部分は例文を用いてわかりますが、目的語は表を参照して解きましょう。'
@@ -294,7 +294,7 @@ jsPsych.plugins["color-picker"] = (function() {
 
       html +=         '<p>5. nirum kəmə nɤ cʰam tiʔ ne</p>'
       html +=           '<input type = "answer" id = "answer35" />'
-      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample35" aria-expanded="false" aria-controls="multiCollapseExample35" id= "hint35" onclick = "provide_time(this.id)>Q5ヒント</button>'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample35" aria-expanded="false" aria-controls="multiCollapseExample35" id= "hint35" onclick = "provide_time(this.id)">Q5ヒント</button>'
       html +=           '<div class="collapse multi-collapse" id="multiCollapseExample35">'
       html +=             '<div class="card card-body">'
       html +=               '質問5の動詞は例文で探せますが、主語と目的語は表を参照してください。'
@@ -305,7 +305,7 @@ jsPsych.plugins["color-picker"] = (function() {
 
       html +=           '<p>6. nirum ka tiʔ ne</p>'
       html +=           '<input type = "answer" id = "answer36" />'
-      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample36" aria-expanded="false" aria-controls="multiCollapseExample36" id= "hint36" onclick = "provide_time(this.id)>Q6ヒント</button>'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample36" aria-expanded="false" aria-controls="multiCollapseExample36" id= "hint36" onclick = "provide_time(this.id)">Q6ヒント</button>'
       html +=           '<div class="collapse multi-collapse" id="multiCollapseExample36">'
       html +=             '<div class="card card-body">'
       html +=               '質問6も動詞をわかっていますが、主語と目的語は表を利用して答えましょう。'
