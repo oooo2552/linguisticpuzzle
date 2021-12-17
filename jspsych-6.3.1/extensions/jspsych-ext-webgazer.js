@@ -185,7 +185,10 @@ jsPsych.extensions['webgazer'] = (function () {
     state.webgazer.pause();
     // sometimes gaze dot will show and freeze after pause?
     if(document.querySelector('#webgazerGazeDot')){
-      document.querySelector('#webgazerGazeDot').style.display = 'none';
+      console.log('RedDot dissapear!');
+      // document.querySelector('#webgazerGazeDot').style.display = 'none';
+      document.querySelector('#webgazerGazeDot').style.visibility = 'hidden';
+      // console.log(document.querySelector('#webgazerGazeDot'));
     }
   }
 

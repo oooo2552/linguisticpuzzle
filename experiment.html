@@ -15,9 +15,11 @@
   <script src="jspsych-6.3.1/extensions/jspsych-ext-webgazer.js"></script>
   <script src="jspsych-6.3.1/plugins/jspsych-canvas-button-response.js"></script>
   <script src="jspsych-6.3.1/plugins/jspsych-serial-reaction-time-mouse.js"></script>
+  
+  
 
   <script src="jspsych-6.3.1/plugins/color-picker.js"></script>
-
+  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -38,7 +40,9 @@
   <meta name="renderer" content="webkit">-->
 
 
-
+  <style>
+    .jspsych-content { max-width: 100%;}
+  </style>
 
   <title>言語学パズル実験</title>
 </head>
@@ -150,7 +154,12 @@ console.log(subject_id);
 
 
   var calibration = {
-    type: 'webgazer-calibrate'
+    type: 'webgazer-calibrate',
+    calibration_points: [
+     [50,50], [25,25], [25,75], [75,25], [75,75]
+    ],
+    repetitions_per_point: 3,
+    randomize_calibration_order: true,
   }
   timeline.push(calibration);
 
@@ -174,12 +183,15 @@ console.log(subject_id);
   var validation = {
     type: 'webgazer-validate',
     validation_points: [
-      [25, 25],
-      [25, 75],
-      [75, 25],
-      [75, 75]
+    [25,25], [25,75], [75,25], [75,75]
     ],
-    show_validation_data: true
+    roi_radius: 200,
+    time_to_saccade: 1000,
+    validation_duration: 2000,
+    data: {
+          task: 'validate'
+        },
+    show_validation_data: true,
   }
   timeline.push(validation);
 
