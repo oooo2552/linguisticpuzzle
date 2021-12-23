@@ -15,17 +15,14 @@ jsPsych.plugins["webgazer-init-camera"] = (function() {
         type: jsPsych.plugins.parameterType.HTML_STRING,
         default: `
             <p>ウェブカメラであなたの目をはっきり撮影するために、あなたの頭を調整してください。</p>
-            <p>Position your head so that the webcam has a good view of your eyes.</p>
             <p>顔を中央にして、カメラに直面してください。</p>
-            <p>Center your face in the box and look directly towards the camera.</p>
-            <p>実験中、あなたの頭をこの位置に維持しているのは重要なので、パソコンをしやすい姿勢を調整してください。</p>
-            <p>It is important that you try and keep your head reasonably still throughout the experiment, so please take a moment to adjust your setup to be comfortable.</p>
-            <p>あなたの顔を上の正方形の中にして、緑を見えたら、「つづき」をクリックしてください。。</p>
-            <p>When your face is centered in the box and the box is green, you can click to continue.</p>`
+            <p>実験中、頭の位置を一定の位置に保つことが重要なので、パソコンを操作しやすい体勢でカメラ位置を調整してください。</p>
+            <p>顔を上のカメラ画像の正方形の中に調整して、正方形が緑になる位置に調整してから、「次へ」をクリックしてください。</p>
+            `
       },
       button_text: {
         type: jsPsych.plugins.parameterType.STRING,
-        default: 'つづき'
+        default: '次へ'
       }
     }
   }

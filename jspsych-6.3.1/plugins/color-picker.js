@@ -103,7 +103,7 @@ jsPsych.plugins["color-picker"] = (function() {
       html += '<br><br><br><p>Q1:日本語に訳しなさい</p>'
       html += '<p><button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" id= "hint02" onclick = "provide_time(this.id)">Q1?</button></p>'
       html += '<div class="col"><div class="collapse multi-collapse" id="multiCollapseExample2"><div class="card card-body">'
-      html += '自分が着色している結果に参考して、答えてみてください。'
+      html += '自分が着色している結果を参考にして、答えてみてください。'
       html += '</div></div></div> '
       html += '<p>那是苹果：<input></input></div>'
 
@@ -139,22 +139,22 @@ jsPsych.plugins["color-picker"] = (function() {
 
       html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2" id= "hint2" onclick = "provide_time(this.id)">ヒント2</a>'
       html += '<div class="collapse multi-collapse" id="multiCollapseExample2">'
-      html += '<div class="card card-body">そして、5番を見て、2番と8番の文と比べると、同じところを着色してください。</div>'
+      html += '<div class="card card-body">そして、5番を見て、2番と8番の文と比べて、同じところを着色してください。</div>'
       html += '</div>'
 
       html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3" id= "hint3" onclick = "provide_time(this.id)">ヒント3</a>'
       html += '<div class="collapse multi-collapse" id="multiCollapseExample3">'
-      html += '<div class="card card-body">次は、3番を見て、この前着色した文と比べて、似ている文字のところも同じ色を付けてください。</div>'
+      html += '<div class="card card-body">次は、3番を見て、以前に着色した文と比べて、似ている文字のところも同じ色を付けてください。</div>'
       html += '</div>'
 
       html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false" aria-controls="multiCollapseExample4" id= "hint4" onclick = "provide_time(this.id)">ヒント4</a>'
       html += '<div class="collapse multi-collapse" id="multiCollapseExample4">'
-      html += '<div class="card card-body">2、3、6、8、10番の文は、過去形なので、5番の文を比べると、辞書形のところを探しましょう。</div>'
+      html += '<div class="card card-body">2、3、6、8、10番の文は、過去形なので、5番の文と比べて、辞書形のところを探しましょう。</div>'
       html += '</div>'
 
       html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample5" role="button" aria-expanded="false" aria-controls="multiCollapseExample5" id= "hint5" onclick = "provide_time(this.id)">ヒント5</a>'
       html += '<div class="collapse multi-collapse" id="multiCollapseExample5">'
-      html += '<div class="card card-body">7番と9番の文も、他の文と比べて、同じ部分で同じ色を付けてください。</div>'
+      html += '<div class="card card-body">7番と9番の文も、他の文と比べて、同じ部分に同じ色を付けてください。</div>'
       html += '</div>'
 
       html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample6" role="button" aria-expanded="false" aria-controls="multiCollapseExample6" id= "hint6" onclick = "provide_time(this.id)">ヒント6</a>'
@@ -234,7 +234,7 @@ jsPsych.plugins["color-picker"] = (function() {
       html +=          '<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample21" role="button" aria-expanded="false" aria-controls="multiCollapseExample21" id= "hint21" onclick = "provide_time(this.id)">この表は？</a>'
       html +=             '<div class="collapse multi-collapse" id="multiCollapseExample21">'
       html +=               '<div class="card card-body">'
-      html +=                 '主語と目的語をわかるために、表を作りましょう！まず、今は知っている主語と目的語の組み合わせを入力しましょう！'
+      html +=                 '主語と目的語の関係を簡単に理解するために、表を作りましょう！まず、今は知っている主語と目的語の組み合わせを入力しましょう！'
       html +=               '</div>'
       html +=             '</div>'
       html +=             '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample22" aria-expanded="false" aria-controls="multiCollapseExample22" id= "hint22" onclick = "provide_time(this.id)">表の書き方のヒント</button>'
@@ -267,7 +267,7 @@ jsPsych.plugins["color-picker"] = (function() {
       html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample32" aria-expanded="false" aria-controls="multiCollapseExample32" id= "hint32" onclick = "provide_time(this.id)">Q2ヒント</button>'
       html +=           '<div class="collapse multi-collapse" id="multiCollapseExample32">'
       html +=             '<div class="card card-body">'
-      html +=               '質問2の文も、上記の例文と同じところがありますが、主語と目的語のところは例文を利用して考えましょう。'
+      html +=               '質問2の文も、上記の例文と同じところがありますが、主語と目的語については例文を利用して考えましょう。'
       html +=             '</div>'
       html +=           '</div>'
 
@@ -277,7 +277,7 @@ jsPsych.plugins["color-picker"] = (function() {
       html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample33" aria-expanded="false" aria-controls="multiCollapseExample33" id= "hint33" onclick = "provide_time(this.id)">Q3ヒント</button>'
       html +=           '<div class="collapse multi-collapse" id="multiCollapseExample33">'
       html +=             '<div class="card card-body">'
-      html +=               '質問3の解き方も同じ、例文を利用して解きましょう。'
+      html +=               '質問3の解き方も同じです。例文を利用して解きましょう。'
       html +=             '</div>'
       html +=           '</div>'
 
@@ -287,7 +287,7 @@ jsPsych.plugins["color-picker"] = (function() {
       html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample34" aria-expanded="false" aria-controls="multiCollapseExample34" id= "hint34" onclick = "provide_time(this.id)">Q4ヒント</button>'
       html +=           '<div class="collapse multi-collapse" id="multiCollapseExample34">'
       html +=             '<div class="card card-body">'
-      html +=               '主語と動詞の部分は例文を用いてわかりますが、目的語は表を参照して解きましょう。'
+      html +=               '主語と動詞の部分は例文を用いるとわかりますが、目的語は表を参照して解きましょう。'
       html +=             '</div>'
       html +=           '</div>'
 

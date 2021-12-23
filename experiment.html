@@ -73,19 +73,23 @@
     stimulus: `
     <div class = "container">
     <h1>言語パズルへようこそ～ </h1>
-    <h2>言語パズルは？</h2>
-    <p>言語パズルは「言語学オリンピック」という国際科学オリンピックで使っている問題です。問題は謎解きが好きなら確実に楽しめる，言語を題材にします。</p>
+    <h2>言語パズルとは？</h2>
+    <p>言語パズルは「言語学オリンピック」という国際科学オリンピックで使っている問題です。問題は謎解きが好きなら確実に楽しめるものとなっていて，言語を題材にしています。</p>
     <h2>問題の特徴は？</h2>
-    <p>問題は実際の言語研究で行われる分析に似ていて、
-    <strong>「初めて見る言語のデータから隠れた法則を解き明かす」</strong>というものです。
-    謎解きやパズルのように、分析力、情報処理能力、論理的思考、試行錯誤する力が求められます。
-    この点で、数学やプログラミングと根本となる能力が似ていると思われます。</p>
-<p>言語学オリンピックの問題の特筆すべき点は、問題の<strong>自己完結性</strong>です。
-<strong>答案を書くために必要な情報はすべて問題の中に隠されています。</strong>
-したがって「暗記力」は必要ありません。語学試験や弁論大会とは異なり、
-英語やその他特定の言語を話したり書いたりするための運用能力は求められません。
-言語の知識はむしろ、言語分析にとって重要な「相対的な世界観」を構築するのに役立ちます。</p>
-<p>出典：<a href="https://iolingjapan.org/information/">日本言語学オリンピック</a></p>
+    <p>問題は実際の言語研究で行われる分析に似ていて、 
+      <strong>「初めて見る言語のデータから隠れた法則を解き明かす」</strong>
+      というものです。 謎解きやパズルのように、
+      分析力、情報処理能力、論理的思考、試行錯誤する力が求められます。 
+      この点で、数学やプログラミングと根本となる能力が似ていると思われます。</p>
+    <p>言語学オリンピックの問題の特筆すべき点は、
+      問題の<strong>自己完結性</strong>です。 
+      <strong>答案を書くために必要な情報はすべて問題の中に隠されています。</strong>
+      したがって「暗記力」は必要ありません。
+      語学試験や弁論大会とは異なり、 
+      英語やその他特定の言語を話したり書いたりするための運用能力は
+      求められません。言語の知識はむしろ、
+      言語分析にとって重要な「相対的な世界観」を構築するのに役立ちます。</p>
+    <p>出典：<a href="https://iolingjapan.org/information/">日本言語学オリンピック</a></p>
 </div>`,
     choices: ['実験開始'],
     post_trial_gap: 1000
@@ -117,14 +121,12 @@ console.log(subject_id);
   var camera_instructions = {
     type: 'html-button-response',
     stimulus: `
-      <p>This experiment uses your camera for eye tracking.</p>
-      <p>この実験は、眼球運動の追跡するために、あなたのカメラを使っています。</p>
-      <p>In order to participate you must allow the experiment to use your camera.</p>
-      <p>そのために、カメラのアクセス権の付与をお願いします。</p>
-      <p>You will be prompted to do this on the next screen.</p>
-      <p>同意すれば、次の画面に移動してください。</p>
-      <p>If you do not want to permit the experiment to use your camera, please close the page.</p>
-      <p>カメラのアクセス許可を拒否したい場合、この画面を閉じてください。</p>
+      
+    <p>この実験は、眼球運動の追跡するために、あなたのカメラを使っています。</p>
+    <p>そのため、カメラのアクセス権の付与をお願いします。</p>
+    <p>カメラのアクセス権に同意していただける方は、次の画面で許可してください。</p>
+    <p>カメラのアクセス許可を拒否したい場合、この画面を閉じてください。</p>
+
     `,
     choices: ['クリックして開始'],
     post_trial_gap: 1000
@@ -139,13 +141,10 @@ console.log(subject_id);
   var calibration_instructions = {
     type: 'html-button-response',
     stimulus: `
-    <p>良かったです！　これでウェブカメラから、あなたの目の画像を使って画面上の位置に変換することができます。
-    そのために、アイトラッキング（視線計測）を校正します。</p>
-    <p>Great! Now the eye tracker will be calibrated to translate the image of your eyes from the webcam to a location on your screen.</p>
-    <p>校正するために、シリーズのドットをクリックするタスクをしてください。</p>
-    <p>To do this, you need to click a series of dots.</p>
-    <p>頭を維持して、ドットが出たら、このドット自体を見ながらクリックしてください。</p>
-    <p>Keep your head still, and click on each dot as it appears. Look at the dot as you click it.</p>
+    <p>良かったです！　これでウェブカメラを使って、あなたの目の画像からあなたの視線を画面上に表示することができます。より正確な視線計測を行うために校正を行います。</p>
+    <p>校正するために、次の画面に表示されるドットを見ながら、クリックしてください。</p>
+    <p>頭の位置をなるべく動かさないように注意しながら、ドットを見ながらクリックしてください。</p>
+  
   `,
     choices: ['クリックして開始'],
     post_trial_gap: 1000
@@ -168,11 +167,8 @@ console.log(subject_id);
     type: 'html-button-response',
     stimulus: `
       <p>アイトラッキングの正しさを見ましょう。</p>
-      <p>Let's see how accurate the eye tracking is. </p>
       <p>頭を固定して、目だけを動かして、ドットが出た際に注目してください</p>
-      <p>Keep your head still, and move your eyes to focus on each dot as it appears.</p>
-      <p>ドットをクリックする必要がありません。目を動かすだけで、ドットを見てください。</p>
-      <p>You do not need to click on the dots. Just move your eyes to look at the dots.</p>
+      <p>今回は、ドットをクリックする必要はありません。目だけを動かして、ドットを見てください。</p>
     `,
     choices: ['クリックして開始'],
     post_trial_gap: 1000
@@ -218,7 +214,7 @@ console.log(subject_id);
         <div class="contianer">
             <div class="row articleRow">
                 <div class="col-lg-12 col-md-12 col-sm-12 articleFrame">
-                <p><strong>本実験で提示している問題の文字は、着色の機能があります。直接に文字自体の上でクリックして、色を選んでください。</strong></p>
+                <p><strong>本実験で提示している問題の文字は、着色の機能があります。直接、文字自体をクリックして、色を選んでください。</strong></p>
 
                     <h3>注意事項</h3>
 
@@ -226,10 +222,10 @@ console.log(subject_id);
                     <div class="abstract paragraph">
                         <p> 1．本実験は時間制限がありません。</p>
                         <p>2．言語パズルの問題は2つ解決策があります。1つ目は、言語の構造の理解です。2つ目は問題を解くことです。</p>
-                        <p>3．問題を早く解決するために、まず、言語の構造を理解すればよいと言われています。構造分析する時、このウェイブサイトの着色の機能を利用してください。</p>
+                        <p>3．問題を早く解決するために、まず、言語の構造を理解すればよいと言われています。構造分析する時、このウェブサイトの着色の機能を利用してください。</p>
                         <p>4. 問題を解く際に、問題の番号をクリックして、問題のヒントが出られます。ヒントを活かして、答えを入力してください。</p>
-                        <p>5.　困ったら、クエスチョンマークのボタンをクリックしてください。</p>
-                        <p>6．最後、問題を解いたと思ったら、提出のボタンをクリックしてください。
+                        <p>5. 困ったら、クエスチョンマークのボタンをクリックしてください。</p>
+                        <p>6．最後、問題の回答が全て終わったら、提出のボタンをクリックしてください。</p>
                         <p>以上、問題なければ、何かキーを押して下さい。練習問題が始まります。</p>
 
                     </div>
