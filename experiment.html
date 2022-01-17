@@ -115,6 +115,19 @@ console.log(subject_id);
 //id = document.getElementById("input-SubjectId");
 //console.log(document.getElementById("input-0").value);
 
+var task_instructions = {
+    type: 'html-button-response',
+    stimulus: `
+    <p>練習問題をはじめる前に、2つのカメラをOnにします。まず、このカメラは、貴方の顔を録画します。</p>
+    <input type="button" id='script' name="scriptbutton" value="Run Python Camera" onclick="window.open('http://127.0.0.1:5000/camera')">
+    <p>We're ready for the task now.</p>
+    <p>続いて、2つ目のカメラを設定しましょう！</p>
+
+  `,
+    choices: ['次へ'],
+    post_trial_gap: 1000
+  }
+  timeline.push(task_instructions);
 
 
   // TODO: create camera
@@ -122,7 +135,7 @@ console.log(subject_id);
     type: 'html-button-response',
     stimulus: `
       
-    <p>この実験は、眼球運動の追跡するために、あなたのカメラを使っています。</p>
+    <p>この実験は、眼球運動の追跡するために、あなたのウェブカメラを使っています。</p>
     <p>そのため、カメラのアクセス権の付与をお願いします。</p>
     <p>カメラのアクセス権に同意していただける方は、次の画面で許可してください。</p>
     <p>カメラのアクセス許可を拒否したい場合、この画面を閉じてください。</p>
@@ -192,19 +205,6 @@ console.log(subject_id);
   timeline.push(validation);
 
 
-  var task_instructions = {
-    type: 'html-button-response',
-    stimulus: `
-    <p>練習問題をはじめる前に、2つ目のカメラをOnにしましょう。このカメラは、貴方の顔を録画します。</p>
-    <input type="button" id='script' name="scriptbutton" value="Run Python Camera" onclick="window.open('http://127.0.0.1:5000/camera')">
-    <p>We're ready for the task now.</p>
-    <p>練習問題をはじめましょう！</p>
-
-  `,
-    choices: ['始め'],
-    post_trial_gap: 1000
-  }
-  timeline.push(task_instructions);
 
   // TODO: how to storage camera data
 
