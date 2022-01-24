@@ -204,7 +204,54 @@ var task_instructions = {
   }
   timeline.push(validation);
 
+  var recalibrate_instructions = {
+        type: 'html-button-response',
+        stimulus: `
+          <p>The accuracy of the calibration is a little lower than we'd like.</p>
+          <p>Let's try calibrating one more time.</p>
+          <p>On the next screen, look at the dots and click on them.</p>
+        `,
+        choices: ['OK'],
+      }
 
+      var recalibrate = {
+        timeline: [recalibrate_instructions, calibration, validation_instructions, validation],
+      //   loop_function: function(){
+      //     var validation_data = jsPsych.data.get().filter({task: 'validate'}).values()[0];
+      //     console.log('test:', validation_data.percent_in_roi)
+      //     const minimum_percent_acceptable = (element) => element < 80
+      //     console.log('if_test:',validation_data.percent_in_roi.some(minimum_percent_acceptable))
+      //     // if(validation_data.percent_in_roi.some(minimum_percent_acceptable)){
+      //     if(jsPsych.pluginAPI.compareKeys(data.response, 'c')){
+      //       return true;
+      //     }else{
+      //       return false;
+      //     }
+      //   },
+        
+        
+        conditional_function: function(){
+          var validation_data = jsPsych.data.get().filter({task: 'validate'}).values()[0];
+          return validation_data.percent_in_roi.some(function(x){
+            var minimum_percent_acceptable = 80;
+            console.log(x)
+            return x < minimum_percent_acceptable;
+          });
+        },
+        data: {
+          phase: 'recalibration'
+        }
+      }
+      timeline.push(recalibrate);
+
+      var calibration_done = {
+        type: 'html-button-response',
+        stimulus: `
+          <p>Great, we're done with calibration!</p>
+        `,
+        choices: ['OK']
+      }
+      timeline.push(calibration_done);
 
   // TODO: how to storage camera data
 
