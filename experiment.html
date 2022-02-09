@@ -384,7 +384,7 @@ var task_instructions = {
   function answerStorage() {
     // Gets input value
     var final_answers = 'answer3', answer= [];
-    for (var num_of_answer = 1; num_of_answer <= 6; ++num_of_answer){
+    for (var num_of_answer = 1; num_of_answer <= 10; ++num_of_answer){
       final_answers = 'answer3';
       final_answers = final_answers + num_of_answer;
       answer[num_of_answer] = document.getElementById(final_answers).value;
@@ -456,7 +456,7 @@ var task_instructions = {
   /*tell jspsych to start the timeline*/
   jsPsych.init({
     timeline: timeline,
-      // timeline: [problem1],
+      //  timeline: [problem1],
     extensions: [{
       type: 'webgazer'
     }],

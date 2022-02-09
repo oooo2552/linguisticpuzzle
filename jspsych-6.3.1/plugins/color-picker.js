@@ -346,9 +346,9 @@ jsPsych.plugins["color-picker"] = (function() {
 
 
       html +=           '<p>10. あなた達は眠るか?</p>'
-      html +=           '<input type = "answer" id = "answer40" />'
-      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample40" aria-expanded="false" aria-controls="multiCollapseExample40" id= "hint40" onclick = "provide_time(this.id)">Q10ヒント</button>'
-      html +=           '<div class="collapse multi-collapse" id="multiCollapseExample40">'
+      html +=           '<input type = "answer" id = "answer310" />'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample310" aria-expanded="false" aria-controls="multiCollapseExample310" id= "hint40" onclick = "provide_time(this.id)">Q10ヒント</button>'
+      html +=           '<div class="collapse multi-collapse" id="multiCollapseExample310">'
       html +=             '<div class="card card-body">'
       html +=               '主語は表を参照して解きましょう。'
       html +=             '</div>'
