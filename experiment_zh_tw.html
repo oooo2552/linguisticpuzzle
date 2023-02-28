@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <script src="jspsych-6.3.1/jspsych.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-preload.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-image-keyboard-response.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-html-button-response.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-survey-text.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-webgazer-init-camera.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-webgazer-calibrate.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-webgazer-validate.js"></script>
+  <script src="js/webgazer/webgazer.js"></script>
+  <script src="jspsych-6.3.1/extensions/jspsych-ext-webgazer.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-canvas-button-response.js"></script>
+  <script src="jspsych-6.3.1/plugins/jspsych-serial-reaction-time-mouse.js"></script>
+
+
+
+  <script src="jspsych-6.3.1/plugins/color-picker.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+  <script src="js/app.js"></script>
+  <script src="js/jscolor.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="jspsych-6.3.1/css/jspsych.css">
+
+  <!-- Required meta tags
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">-->
+
+
+  <style>
+    .jspsych-content { max-width: 100%;}
+  </style>
+
+  <title>語言學解謎實驗</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /*create timeline*/ //開啟了timeline之後，就會只跑timeline
+  var timeline = []; //initialize
+
+
+
+//console.log(subject_id);
+  // set up condition of experiment
+  var condition_assignment = 'pretest'; //予備実験を行います。
+
+  // record the condition assignment in the jsPsych data
+  // this adds a property called 'subject' and a property called 'condition' to every trial
+  jsPsych.data.addProperties({
+    subject: subject_id,
+    condition: condition_assignment
+  });
+
+  /* define welcome message trial */
+  var welcome = {
+    type: 'html-button-response',
+    stimulus: `
+    <div class = "container">
+    <h1>~歡迎來語言學解謎~</h1>
+    <h2>什麼是語言學解謎？</h2>
+    <p>語言學解謎是國際科學奧林匹亞競賽之一的「語言學奧林匹亞」競賽所使用的問題。
+    這些問題題材以語言為中心，如果你喜歡解謎遊戲，你一定會喜歡這些問題。</p>
+    <h2>問題的特點是什麼？</h2>
+    <p>這些問題類似於實際的語言學研究分析，需要解開
+    <strong>「從看到的語言資料中隱藏的法則」</strong>。
+    像解謎遊戲或猜謎一樣，需要分析力、資料處理能力、邏輯思維和嘗試錯誤的能力。
+    從這個角度來看，這種能力與數學或寫程式的基本能力很相似。</p>
+    <p>語言學奧林匹亞的問題最顯著的特點是其<strong>自我完結性</strong>。
+     <strong>為了解出答案，所需的所有資訊都隱藏在問題中</strong>。
+     因此，不需要「記憶力」，且與語言考試或演講比較，不需要英語或其他特定語言的讀寫能力。
+     不過，語言學知識實際上有助於構建對於語言分析至關重要的「相對世界觀」。</p>
+    <p>引用自：<a href="https://iolingjapan.org/information/">日本語言學奧林匹亞網站</a></p>
+
+
+
+</div>`,
+    choices: ['實驗開始'],
+    post_trial_gap: 1000
+  };
+
+  timeline.push(welcome);
+
+  ////basic data from subject
+  //// TODO:  generate subject ID
+  var subject_id = Math.floor(100000 + Math.random() * 900000);; //被験者の番号はランダムの六つの数字
+  var survey = {
+  type: "survey-text",
+  questions: [
+    {prompt: '實驗參與者ID(eg.001)', name: 'SubjectId'},
+    {prompt: '姓名(English)', name: 'Name'},
+    {prompt: '年齡', name: 'Age'},
+    {prompt: '性別(female/male)', name: 'Gender'}
+  ]
+}
+timeline.push(survey);
+console.log(subject_id);
+
+//id = document.getElementById("input-SubjectId");
+//console.log(document.getElementById("input-0").value);
+
+var task_instructions = {
+    type: 'html-button-response',
+    stimulus: `
+    <p>在開始練習問題之前，將會打開兩個攝影機，這些攝影機會將您的臉部拍攝下來，先來打開第一個吧！</p>
+    <input type="button" id='script' name="scriptbutton" value="Run Python Camera" onclick="window.open('http://127.0.0.1:5000/camera')">
+    <p>We're ready for the task now.</p>
+    <p>接著，我們來設定第二個攝影機吧！</p>
+
+  `,
+    choices: ['下一頁'],
+    post_trial_gap: 1000
+  }
+  timeline.push(task_instructions);
+
+
+  // TODO: create camera
+  var camera_instructions = {
+    type: 'html-button-response',
+    stimulus: `
+
+    <p>本實驗為了追蹤眼球運動，所以會使用您的網路攝影機。</p>
+    <p>因此，請同意提供您的網路攝影機的權限。</p>
+    <p>若您願意提供權限的許可，請繼續前往下一頁，並點擊下方的按鈕。</p>
+    <p>若您拒絕提供攝影機的許可，那麼請關閉這個畫面。</p>
+
+    `,
+    choices: ['同意並前往下一頁'],
+    post_trial_gap: 1000
+  }
+  timeline.push(camera_instructions);
+
+  var init_camera = {
+    type: 'webgazer-init-camera'
+  }
+  timeline.push(init_camera);
+
+  var calibration_instructions = {
+    type: 'html-button-response',
+    stimulus: `
+    <p>太好了！那麼接下來我們就可以使用網路攝影機，藉由拍攝您的眼睛來了解您的視線在畫面上停留的狀況。
+    所以為了可以更正確的測量您的視線，我們來進行校正吧。</p>
+    <p>請看接下來的畫面裡出現的黑點，並請用滑鼠點擊看到的黑點。</p>
+    <p>同時，也請注意不要讓頭部有大動作，而是只透過視線的移動來點擊。</p>
+
+  `,
+    choices: ['開始'],
+    post_trial_gap: 1000
+  }
+  timeline.push(calibration_instructions);
+
+
+  var calibration = {
+    type: 'webgazer-calibrate',
+    calibration_points: [
+     [50,50], [25,25], [25,75], [75,25], [75,75]
+    ],
+    repetitions_per_point: 3,
+    randomize_calibration_order: true,
+  }
+  timeline.push(calibration);
+
+
+  var validation_instructions = {
+    type: 'html-button-response',
+    stimulus: `
+      <p>我們一起來看看眼動軌跡的正確度吧！</p>
+      <p>請固定您的頭部，只動眼睛，並且在黑點出現的時候看向它。</p>
+      <p>請注意，這次不需要用滑鼠點擊黑點，只要動動您的眼鏡就好囉！</p>
+    `,
+    choices: ['開始'],
+    post_trial_gap: 1000
+  }
+  timeline.push(validation_instructions);
+
+
+  var validation = {
+    type: 'webgazer-validate',
+    validation_points: [
+    [25,25], [25,75], [75,25], [75,75]
+    ],
+    roi_radius: 200,
+    time_to_saccade: 1000,
+    validation_duration: 2000,
+    data: {
+          task: 'validate'
+        },
+    show_validation_data: true,
+  }
+  timeline.push(validation);
+
+  var recalibrate_instructions = {
+        type: 'html-button-response',
+        stimulus: `
+          <p>因為您的正確率稍微比我們預期的還低，</p>
+          <p>讓我們再試一次吧！</p>
+          <p>在下一個畫面，請點擊看到的黑點。</p>
+        `,
+        choices: ['OK'],
+      }
+
+      var recalibrate = {
+        timeline: [recalibrate_instructions, calibration, validation_instructions, validation],
+      //   loop_function: function(){
+      //     var validation_data = jsPsych.data.get().filter({task: 'validate'}).values()[0];
+      //     console.log('test:', validation_data.percent_in_roi)
+      //     const minimum_percent_acceptable = (element) => element < 80
+      //     console.log('if_test:',validation_data.percent_in_roi.some(minimum_percent_acceptable))
+      //     // if(validation_data.percent_in_roi.some(minimum_percent_acceptable)){
+      //     if(jsPsych.pluginAPI.compareKeys(data.response, 'c')){
+      //       return true;
+      //     }else{
+      //       return false;
+      //     }
+      //   },
+
+
+        conditional_function: function(){
+          var validation_data = jsPsych.data.get().filter({task: 'validate'}).values()[0];
+          return validation_data.percent_in_roi.some(function(x){
+            var minimum_percent_acceptable = 80;
+            console.log(x)
+            return x < minimum_percent_acceptable;
+          });
+        },
+        data: {
+          phase: 'recalibration'
+        }
+      }
+      timeline.push(recalibrate);
+
+      var calibration_done = {
+        type: 'html-button-response',
+        stimulus: `
+          <p>Great, we're done with calibration!</p>
+        `,
+        choices: ['OK']
+      }
+      timeline.push(calibration_done);
+
+  // TODO: how to storage camera data
+
+  var instructions_before_practice = {
+    type: "html-keyboard-response",
+    stimulus: `
+        <div class="contianer">
+            <div class="row articleRow">
+                <div class="col-lg-12 col-md-12 col-sm-12 articleFrame">
+                <p><strong>這個實驗所呈現的問題中的文字有著色功能，請直接點擊文字並且選擇顏色。
+                </strong></p>
+
+                    <h3>注意事項</h3>
+
+                    <hr>
+                    <div class="abstract paragraph">
+                        <p> 1．本實驗沒有時間限制。</p>
+                        <p> 2．基本上，語言學解謎的問題主要可以分成兩大步驟。
+                        其一，理解語言的構造，其二，解決問題。</p>
+                        <p> 3．為了快點解決問題，首先可以先理解語言的構造。在分析構造的時候，可以使用這個網站的著色功能。</p>
+                        <p> 4. 在解題的時候，點擊寫有題目編號的藍色按鈕之後，就會出現該題目的提示，請活用提示來找出答案。</p>
+                        <p> 5. 感到困惑的時候，也可以點擊有著問號的按鈕</p>
+                        <p> 6．最後，所有的問題都回答完畢後，請點擊下方「提交」的按鈕。</p>
+                        <p> 以上注意事項如果都沒有問題的話，請按任意鍵繼續。開始練習問題吧！</p>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        `,
+    post_trial_gap: 500
+  };
+
+  timeline.push(instructions_before_practice);
+
+
+  var practice1 = {
+    type: "color-picker",
+    stimulus: "practice1_zh", //練習問題を示す
+    choices: ['提交'],
+  };
+
+  timeline.push(practice1);
+
+
+
+  var instructions_after_practice = {
+    type: "html-keyboard-response",
+    stimulus: `
+        <div class="contianer">
+            <div class="row articleRow">
+                <div class="col-lg-12 col-md-12 col-sm-12 articleFrame">
+                    <p>練習問題結束了，正確答案是「那是蘋果。」</p>
+                    <p>接下來的正式問題也請用相同的方式進行吧。</p>
+                    <p>那麼在正式實驗開始之前，請再閱讀一次注意事項。</p>
+
+                    <h3>注意事項</h3>
+
+                    <hr>
+                    <div class="abstract paragraph">
+                        <p> 1．本實驗沒有時間限制。</p>
+                        <p> 2．基本上，語言學解謎的問題主要可以分成兩大步驟。
+                        其一，理解語言的構造，其二，解決問題。</p>
+                        <p> 3．為了快點解決問題，首先可以先理解語言的構造。在分析構造的時候，可以使用這個網站的著色功能。</p>
+                        <p> 4. 在解題的時候，點擊寫有題目編號的藍色按鈕之後，就會出現該題目的提示，請活用提示來找出答案。</p>
+                        <p> 5. 感到困惑的時候，也可以點擊有著問號的按鈕</p>
+                        <p> 6．最後，所有的問題都回答完畢後，請點擊下方「提交」的按鈕。</p>
+                        <p> 以上注意事項如果都沒有問題的話，請按任意鍵繼續。開始正式問題吧！</p>
+　　　　　　　　　　　　　
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        `,
+    post_trial_gap: 500
+  };
+
+  timeline.push(instructions_after_practice);
+
+  /* start the experiment */
+  var problem1 = {
+    type: "color-picker",
+    stimulus: "problem1_zh", //本番の問題を示す
+    choices: ['提交'],
+  };
+
+  timeline.push(problem1);
+
+
+
+
+  function saveData(name, data) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({
+      filename: name,
+      filedata: data
+    }));
+  }
+
+  function provide_time(clicked_id){
+
+        const d = new Date();
+        let h = d.getHours();
+        let m = d.getMinutes();
+        let s = d.getSeconds();
+        let ms = d.getMilliseconds();
+        let time = h + ":" + m + ":" + s + ":" + ms;
+        // const date = new Date();
+        // let rightnow = [date.getFullYear(), date.getMonth(), date.getDate(),
+        //                         date.getHours(), date.getMinutes(), date.getSeconds(),date.getMilliseconds()]
+        const rightnow =[]
+        let current_time = clicked_id + "is clicked. Current time: " + time
+        rightnow.push(time)
+        console.log(current_time);
+
+        localStorage.setItem("current_time", JSON.stringify(current_time));
+
+
+    }
+
+
+
+
+
+  function answerStorage() {
+    // Gets input value
+    var final_answers = 'answer3', answer= [];
+    for (var num_of_answer = 1; num_of_answer <= 10; ++num_of_answer){
+      final_answers = 'answer3';
+      final_answers = final_answers + num_of_answer;
+      answer[num_of_answer] = document.getElementById(final_answers).value;
+      localStorage.setItem("answer"+num_of_answer,answer[num_of_answer]);
+
+    }
+
+    var table_answer = 'table', table = [], count = 0;
+    for (var row = 1; row <= 6; ++row){
+      for (var col = 1; col <= 6; ++col){
+        table_answer = 'table';
+        count = 10*row + col;
+        table_answer = table_answer + count;
+        table[count]= document.getElementById(table_answer).value;
+        localStorage.setItem(table_answer, table[count]);
+      }
+    }
+
+
+    //To see the answers
+    console.log(answer);
+    console.log(table);
+    user_answers = answer + table
+    saveTextAsFile(`answer_data${subject_id}.txt`, user_answers);   //please use subject_id
+
+  }
+
+
+
+
+
+
+
+
+  function saveTextAsFile( _fileName, _text ) {
+      var textFileAsBlob = new Blob([_text], {type:'text/plain'});
+
+      var downloadLink = document.createElement("a");
+      downloadLink.download = _fileName;
+      downloadLink.innerHTML = "Download File";
+      if (window.webkitURL != null) {
+          // Chrome allows the link to be clicked
+          // without actually adding it to the DOM.
+          downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+      } else {
+          // Firefox requires the link to be added to the DOM
+          // before it can be clicked.
+          downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+          downloadLink.onclick = destroyClickedElement;
+          downloadLink.style.display = "none";
+          document.body.appendChild(downloadLink);
+      }
+
+      downloadLink.click();
+  }
+
+  function destroyClickedElement(event) {
+      document.body.removeChild(event.target);
+  }
+
+
+
+
+  // call the saveData function after the experiment is over
+  // TODO: 自動化實驗者的ID紀錄
+
+
+
+  /*tell jspsych to start the timeline*/
+  jsPsych.init({
+    timeline: timeline,
+      //  timeline: [problem1],
+    extensions: [{
+      type: 'webgazer'
+    }],
+    on_finish: function() {
+      //document.write('<button id="stop-record">Stop Recording</button><a id="download-video" download="test.mp4">Download Video</a>');
+
+      window.alert('謝謝您！您辛苦了，實驗結束了。');
+      jsPsych.data.displayData();
+      var interaction_data = jsPsych.data.getInteractionData();
+      // log data to console in json format
+      console.log(interaction_data.json());
+      jsPsych.data.get().localSave('json', `data${subject_id}.json`);
+
+    }
+  })
+</script>
+
+
+</html>
