@@ -15,11 +15,11 @@
   <script src="jspsych-6.3.1/extensions/jspsych-ext-webgazer.js"></script>
   <script src="jspsych-6.3.1/plugins/jspsych-canvas-button-response.js"></script>
   <script src="jspsych-6.3.1/plugins/jspsych-serial-reaction-time-mouse.js"></script>
-  
-  
+
+
 
   <script src="jspsych-6.3.1/plugins/color-picker.js"></script>
-  
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -54,7 +54,7 @@
   /*create timeline*/ //開啟了timeline之後，就會只跑timeline
   var timeline = []; //initialize
 
-  
+
 
 //console.log(subject_id);
   // set up condition of experiment
@@ -76,16 +76,16 @@
     <h2>言語パズルとは？</h2>
     <p>言語パズルは「言語学オリンピック」という国際科学オリンピックで使っている問題です。問題は謎解きが好きなら確実に楽しめるものとなっていて，言語を題材にしています。</p>
     <h2>問題の特徴は？</h2>
-    <p>問題は実際の言語研究で行われる分析に似ていて、 
+    <p>問題は実際の言語研究で行われる分析に似ていて、
       <strong>「初めて見る言語のデータから隠れた法則を解き明かす」</strong>
       というものです。 謎解きやパズルのように、
-      分析力、情報処理能力、論理的思考、試行錯誤する力が求められます。 
+      分析力、情報処理能力、論理的思考、試行錯誤する力が求められます。
       この点で、数学やプログラミングと根本となる能力が似ていると思われます。</p>
     <p>言語学オリンピックの問題の特筆すべき点は、
-      問題の<strong>自己完結性</strong>です。 
+      問題の<strong>自己完結性</strong>です。
       <strong>答案を書くために必要な情報はすべて問題の中に隠されています。</strong>
       したがって「暗記力」は必要ありません。
-      語学試験や弁論大会とは異なり、 
+      語学試験や弁論大会とは異なり、
       英語やその他特定の言語を話したり書いたりするための運用能力は
       求められません。言語の知識はむしろ、
       言語分析にとって重要な「相対的な世界観」を構築するのに役立ちます。</p>
@@ -134,7 +134,7 @@ var task_instructions = {
   var camera_instructions = {
     type: 'html-button-response',
     stimulus: `
-      
+
     <p>この実験は、眼球運動の追跡するために、あなたのウェブカメラを使っています。</p>
     <p>そのため、カメラのアクセス権の付与をお願いします。</p>
     <p>カメラのアクセス権に同意していただける方は、次の画面で許可してください。</p>
@@ -147,7 +147,13 @@ var task_instructions = {
   timeline.push(camera_instructions);
 
   var init_camera = {
-    type: 'webgazer-init-camera'
+    type: 'webgazer-init-camera',
+    instructions: `
+        <p>ウェブカメラであなたの目をはっきり撮影するために、あなたの頭を調整してください。</p>
+        <p>顔を中央にして、カメラに直面してください。</p>
+        <p>実験中、頭の位置を一定の位置に保つことが重要なので、パソコンを操作しやすい体勢でカメラ位置を調整してください。</p>
+        <p>顔を上のカメラ画像の正方形の中に調整して、正方形が緑になる位置に調整してから、「次へ」をクリックしてください。</p>
+        `,
   }
   timeline.push(init_camera);
 
@@ -157,7 +163,7 @@ var task_instructions = {
     <p>良かったです！　これでウェブカメラを使って、あなたの目の画像からあなたの視線を画面上に表示することができます。より正確な視線計測を行うために校正を行います。</p>
     <p>校正するために、次の画面に表示されるドットを見ながら、クリックしてください。</p>
     <p>頭の位置をなるべく動かさないように注意しながら、ドットを見ながらクリックしてください。</p>
-  
+
   `,
     choices: ['クリックして開始'],
     post_trial_gap: 1000
@@ -228,8 +234,8 @@ var task_instructions = {
       //       return false;
       //     }
       //   },
-        
-        
+
+
         conditional_function: function(){
           var validation_data = jsPsych.data.get().filter({task: 'validate'}).values()[0];
           return validation_data.percent_in_roi.some(function(x){
@@ -357,7 +363,7 @@ var task_instructions = {
   }
 
   function provide_time(clicked_id){
-        
+
         const d = new Date();
         let h = d.getHours();
         let m = d.getMinutes();
@@ -365,18 +371,18 @@ var task_instructions = {
         let ms = d.getMilliseconds();
         let time = h + ":" + m + ":" + s + ":" + ms;
         // const date = new Date();
-        // let rightnow = [date.getFullYear(), date.getMonth(), date.getDate(), 
+        // let rightnow = [date.getFullYear(), date.getMonth(), date.getDate(),
         //                         date.getHours(), date.getMinutes(), date.getSeconds(),date.getMilliseconds()]
         const rightnow =[]
         let current_time = clicked_id + "is clicked. Current time: " + time
         rightnow.push(time)
         console.log(current_time);
-        
+
         localStorage.setItem("current_time", JSON.stringify(current_time));
-        
-        
+
+
     }
-    
+
 
 
 
@@ -409,13 +415,13 @@ var task_instructions = {
     console.log(table);
     user_answers = answer + table
     saveTextAsFile(`answer_data${subject_id}.txt`, user_answers);   //please use subject_id
-    
+
   }
 
 
- 
 
-    
+
+
 
 
 
@@ -446,7 +452,7 @@ var task_instructions = {
   }
 
 
-  
+
 
   // call the saveData function after the experiment is over
   // TODO: 自動化實驗者的ID紀錄

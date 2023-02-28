@@ -664,7 +664,8 @@ jsPsych.plugins["color-picker"] = (function() {
 
       html +=     '</div>'
       html +=   '</div>'
-      html += '<p>哈堃語屬於漢藏語系薩爾語族．在印度最東部, 及與其接壤的緬甸行政區，約有10 000人使用該語言。ə和ɤ是母音．cʰ，kʰ，ŋ，tʰ，ʒ，ʔ是子音。</p>'
+      html += '<br><br>'
+      html += '<p>備註：哈堃語屬於漢藏語系薩爾語族．在印度最東部, 及與其接壤的緬甸行政區，約有10 000人使用該語言。ə和ɤ是母音．cʰ，kʰ，ŋ，tʰ，ʒ，ʔ是子音。</p>'
       html += '<p>請記得存檔</p><button onclick = "answerStorage()"> 儲存 </button>'
       html +=   '</div>'
 

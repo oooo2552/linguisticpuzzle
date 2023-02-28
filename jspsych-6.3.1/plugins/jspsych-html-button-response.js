@@ -144,9 +144,9 @@ jsPsych.plugins["html-button-response"] = (function() {
         //btns[i].removeEventListener('click');
         btns[i].setAttribute('disabled', 'disabled');
       }
-      
+
       if (trial.response_ends_trial) {
-        
+
         end_trial();
       }
     };
@@ -163,7 +163,7 @@ jsPsych.plugins["html-button-response"] = (function() {
       let rightnow = h + ":" + m + ":" + s + ":" + ms;
 
       // var date = new Date();
-      //   var rightnow = [date.getFullYear(), date.getMonth(), date.getDate(), 
+      //   var rightnow = [date.getFullYear(), date.getMonth(), date.getDate(),
       //                           date.getHours(), date.getMinutes(), date.getSeconds(),date.getMilliseconds()]
         console.log("End the trail at ", rightnow);
 
@@ -180,7 +180,7 @@ jsPsych.plugins["html-button-response"] = (function() {
 
       // clear the display
       display_element.innerHTML = '';
-      
+
       // move on to the next trial
       jsPsych.finishTrial(trial_data);
     };
