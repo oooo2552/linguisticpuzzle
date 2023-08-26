@@ -672,6 +672,41 @@ jsPsych.plugins["color-picker"] = (function() {
 
 
 
+    }else if (trial.stimulus == 'practice1_en') {
+      html += '<div class = "container">'
+      html += '<div class="row"><div class="col">'
+      html += '<h1>Practice Problems</h1>'
+      html += '<div>'
+      html += '<table class = "table"><tbody><tr><td>1.<span data-jscolor="">これは</span><span data-jscolor="">リンゴです</span></td>'
+      html += '<td><span data-jscolor>This is</span><span data-jscolor="">an apple</td></tr>'
+
+      html += '<tr><td>2.<span data-jscolor="">これは</span><span data-jscolor="">バナナです</span></p>'
+      html += '<td><span data-jscolor>This is</span><span data-jscolor="">a banana</td></tr>'
+
+      html += '<tr><td>3.<span data-jscolor="">それは</span><span data-jscolor="">バナナです</span></p>'
+      html += '<td><span data-jscolor>That is</span><span data-jscolor="">a banana</td></tr></tbody></table>'
+
+
+
+      html += '<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" id= "hint01" onclick = "provide_time(this.id)">?</a>'
+
+      //html += '<div class="row">'
+      html += '<div class="col"><div class="collapse multi-collapse" id="multiCollapseExample1"> <div class="card card-body">'
+      html += "Firstly, in order to understand this language, let's start by analyzing its structure. Please use colored dots to organize the structure of the language."
+      html += '</div>'
+
+      html += '</div></div></div>'
+      //html += '</div>'
+
+      html += '<br><br><br><p>Q1:Please translate into English.</p>'
+      html += '<p><button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" id= "hint02" onclick = "provide_time(this.id)">Q1?</button></p>'
+      html += '<div class="col"><div class="collapse multi-collapse" id="multiCollapseExample2"><div class="card card-body">'
+      html += "Please refer to the colored results you've marked and try to answer."
+      html += '</div></div></div> '
+      html += '<p>それはリンゴです。：<input></input></div>'
+
+      html += '</div></div>'
+
     }
 
     //end of stimulus
