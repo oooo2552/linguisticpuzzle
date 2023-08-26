@@ -678,13 +678,13 @@ jsPsych.plugins["color-picker"] = (function() {
       html += '<h1>Practice Problems</h1>'
       html += '<div>'
       html += '<table class = "table"><tbody><tr><td>1.<span data-jscolor="">これは</span><span data-jscolor="">リンゴです</span></td>'
-      html += '<td><span data-jscolor>This is</span><span data-jscolor="">an apple</td></tr>'
+      html += '<td><span data-jscolor>This&nbsp;is&nbsp;</span><span data-jscolor="">an&nbsp;apple</td></tr>'
 
       html += '<tr><td>2.<span data-jscolor="">これは</span><span data-jscolor="">バナナです</span></p>'
-      html += '<td><span data-jscolor>This is</span><span data-jscolor="">a banana</td></tr>'
+      html += '<td><span data-jscolor>This&nbsp;is&nbsp;</span><span data-jscolor="">a&nbsp;banana</td></tr>'
 
       html += '<tr><td>3.<span data-jscolor="">それは</span><span data-jscolor="">バナナです</span></p>'
-      html += '<td><span data-jscolor>That is</span><span data-jscolor="">a banana</td></tr></tbody></table>'
+      html += '<td><span data-jscolor>That&nbsp;is&nbsp;</span><span data-jscolor="">a&nbsp;banana</td></tr></tbody></table>'
 
 
 
@@ -692,7 +692,7 @@ jsPsych.plugins["color-picker"] = (function() {
 
       //html += '<div class="row">'
       html += '<div class="col"><div class="collapse multi-collapse" id="multiCollapseExample1"> <div class="card card-body">'
-      html += "Firstly, in order to understand this language, let's start by analyzing its structure. Please use colored dots to organize the structure of the language."
+      html += "Firstly, in order to understand this language, let's start by analyzing its structure. Please use the pallete to organize the structure of the language."
       html += '</div>'
 
       html += '</div></div></div>'
