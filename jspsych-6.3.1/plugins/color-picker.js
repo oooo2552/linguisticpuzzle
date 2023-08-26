@@ -707,6 +707,272 @@ jsPsych.plugins["color-picker"] = (function() {
 
       html += '</div></div>'
 
+    }else if (trial.stimulus == 'problem1_en') {
+
+      // Problem is in the first row, and the hint also in the first row
+      // problems are at the left, hints are at the right. in the different column
+      html += '<div class="contianer"><div class="container">'
+      html += '<h1>問題2. </h1>'
+      html += '<p><strong>以下是部分哈堃語句及其中文翻譯:</strong></p>'
+      html += '<div class="row"><div class="col"><div>'
+      html += '<div><p><a role="button" class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" id = "hint_0" onclick = "provide_time(this.id)">？</a></p><div class="collapse" id="collapseExample">'
+      html += '<div class="card card-body">首先，為了理解這個語言，我們先來分析語言的構造吧。請上點色來整理語言的構造吧。</div></div></div>'
+      html += '<p>1. <span data-jscolor="">ŋa</span> <span data-jscolor="">ka</span><span data-jscolor=""> kɤ</span><span data-jscolor=""> ne</span>　 ̶　<span data-jscolor="">我</span><span data-jscolor=""> &nbsp; </span><span data-jscolor="">走</span><span data-jscolor="">嗎?</span></p>'
+      html += '<p>2. <span data-jscolor="">nɤ</span> <span data-jscolor="">ʒip</span><span data-jscolor=""> tuʔ</span><span data-jscolor=""> ne</span>　 ̶　<span data-jscolor="">你</span><span data-jscolor="">(過去式)</span><span data-jscolor="">睡</span><span data-jscolor="">嗎?<span></p>'
+      html += '<p>3. <span data-jscolor="">ŋabə</span> <span data-jscolor="">ati</span><span data-jscolor=""> lapkʰi</span><span data-jscolor=""> tɤʔ</span><span data-jscolor=""> ne</span>　 ̶　<span data-jscolor="">我</span><span data-jscolor="">(過去式)</span><span data-jscolor="">看見</span><span data-jscolor="">他</span><span data-jscolor="">嗎?</span></p>'
+      html += '<p>4. <span data-jscolor="">nirum</span><span data-jscolor=""> kəmə</span><span data-jscolor=""> nuʔrum</span><span data-jscolor=""> cʰam</span><span data-jscolor=""> ki</span><span data-jscolor=""> ne</span>　 ̶　<span data-jscolor="">我們</span><span data-jscolor="">&nbsp;</span><span data-jscolor="">知道</span><span data-jscolor="">你們</span><span data-jscolor="">嗎?</span></p>'
+      html += '<p>5. <span data-jscolor="">nɤbə</span> <span data-jscolor=""> ŋa</span><span data-jscolor=""> lapkʰi</span><span data-jscolor=""> rɤ</span><span data-jscolor=""> ne</span>　 ̶　<span data-jscolor="">你</span><span data-jscolor="">&nbsp;</span><span data-jscolor="">看見</span><span data-jscolor="">我</span><span data-jscolor="">嗎?</span></p>'
+      html += '<p>6. <span data-jscolor="">tarum</span><span data-jscolor=""> kəmə</span><span data-jscolor=""> nɤ</span><span data-jscolor=""> lan</span><span data-jscolor=""> tʰu</span><span data-jscolor=""> ne</span>　 ̶　<span data-jscolor="">他們</span><span data-jscolor="">（過去式）</span><span data-jscolor="">打</span><span data-jscolor="">你</span><span data-jscolor="">嗎?</span></p>'
+      html += '<p>7. <span data-jscolor="">nuʔrum</span><span data-jscolor=""> kəmə</span><span data-jscolor=""> ati</span><span data-jscolor=""> lapkʰi</span> <span data-jscolor=""> kan</span><span data-jscolor=""> ne</span>　 ̶　<span data-jscolor="">你們</span><span data-jscolor="">&nbsp;</span><span data-jscolor="">看見</span><span data-jscolor="">他</span><span data-jscolor="">嗎?</span></p>'
+      html += '<p>8. <span data-jscolor="">nɤbə</span><span data-jscolor=""> ati</span><span data-jscolor=""> cʰam</span><span data-jscolor=""> tuʔ</span><span data-jscolor=""> ne</span>　 ̶　<span data-jscolor="">你</span><span data-jscolor="">（過去式）</span><span data-jscolor="">知道</span><span data-jscolor="">他</span><span data-jscolor="">嗎?</span></p>'
+      html += '<p>9. <span data-jscolor="">tarum</span><span data-jscolor=""> kəmə</span><span data-jscolor=""> nirum</span><span data-jscolor=""> lapkʰi</span><span data-jscolor=""> ri</span><span data-jscolor=""> ne</span>　 ̶　<span data-jscolor="">他們</span><span data-jscolor="">&nbsp;</span><span data-jscolor="">看見</span><span data-jscolor="">我們</span><span data-jscolor="">嗎?</span></p>'
+      html += '<p>10.<span data-jscolor=""> ati</span><span data-jscolor=""> kəmə</span><span data-jscolor=""> ŋa</span><span data-jscolor=""> lapkʰi</span><span data-jscolor=""> tʰɤ </span><span data-jscolor="">ne</span>　 ̶　<span data-jscolor="">他</span><span data-jscolor="">（過去式）</span><span data-jscolor="">看見</span><span data-jscolor="">我</span><span data-jscolor="">嗎?</span></p>'
+      html += '</div></div>'
+
+      // ここから、ヒントのコードです。
+      html += '<div class="col"><a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" id= "hint1" onclick = "provide_time(this.id)">提示1</a>'
+      html += '<div class="collapse multi-collapse" id="multiCollapseExample1">'
+      html += '<div class="card card-body">在2號和8號的句子中，找一找相同的部份並著上顏色。</div>'
+      html += '</div>'
+
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2" id= "hint2" onclick = "provide_time(this.id)">提示2</a>'
+      html += '<div class="collapse multi-collapse" id="multiCollapseExample2">'
+      html += '<div class="card card-body">然後請看5號，再和2號及8號的句子比較，把相同的部分著上顏色。</div>'
+      html += '</div>'
+
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3" id= "hint3" onclick = "provide_time(this.id)">提示3</a>'
+      html += '<div class="collapse multi-collapse" id="multiCollapseExample3">'
+      html += '<div class="card card-body">接著，請看看3號，和之前著色的句子比比看，再把相似的字詞也塗上一樣的顏色。</div>'
+      html += '</div>'
+
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false" aria-controls="multiCollapseExample4" id= "hint4" onclick = "provide_time(this.id)">提示4</a>'
+      html += '<div class="collapse multi-collapse" id="multiCollapseExample4">'
+      html += '<div class="card card-body">2、3、6、8、10號的句子都是過去式，我們和5號的句子比比看，來找找現在式的動詞吧。</div>'
+      html += '</div>'
+
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample5" role="button" aria-expanded="false" aria-controls="multiCollapseExample5" id= "hint5" onclick = "provide_time(this.id)">提示5</a>'
+      html += '<div class="collapse multi-collapse" id="multiCollapseExample5">'
+      html += '<div class="card card-body">7號和9號的句子也試著和其他句子比比看，在一樣的地方塗上一樣的顏色吧。</div>'
+      html += '</div>'
+
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample6" role="button" aria-expanded="false" aria-controls="multiCollapseExample6" id= "hint6" onclick = "provide_time(this.id)">提示6</a>'
+      html += '<div class="collapse multi-collapse" id="multiCollapseExample6">'
+      html += '<div class="card card-body">動詞裡用來表示現在式和過去式的地方，可以仔細地分出來看看。</div>'
+      html += '</div>'
+
+
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample7" role="button" aria-expanded="false" aria-controls="multiCollapseExample7" id= "hint7" onclick = "provide_time(this.id)">提示7</a>'
+      html += '<div class="collapse multi-collapse" id="multiCollapseExample7">'
+      html += '<div class="card card-body">剩下的1號和4號，請和其他的句子比較相同的地方，並且塗上顏色。</div>'
+      html += '</div>'
+
+
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample8" role="button" aria-expanded="false" aria-controls="multiCollapseExample8" id= "hint8" onclick = "provide_time(this.id)">提示8</a>'
+      html += '<div class="collapse multi-collapse" id="multiCollapseExample8">'
+      html += '<div class="card card-body">動詞的地方也用同樣的方法，請在同樣的動詞塗上一樣的顏色。</div>'
+      html += '</div>'
+
+      html += '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample9" role="button" aria-expanded="false" aria-controls="multiCollapseExample9" id= "hint9" onclick = "provide_time(this.id)">提示9</a>'
+      html += '<div class="collapse multi-collapse" id="multiCollapseExample9">'
+      html += '<div class="card card-body">最後，忽視動詞的部分，看看主詞和受詞，在同樣的地方塗上顏色。</div>'
+      html += '</div>'
+
+      html += '</div></div>'
+
+      //second row (I put the table here)
+      html += '<div class="row"><div class="col">'
+
+      html += '<style type="text/css">'
+      html += 'table.tableizer-table {font-size: 12px; border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif;}'
+      html += '.tableizer-table td {padding: 4px;margin: 3px; border: 1px solid #CCC;}'
+      html += '.tableizer-table th {background-color: #104E8B;color: #CCC; font-weight: bold; }'
+      html += '</style>'
+
+      html += '<style type="text/css">'
+      html += '.tg { border-collapse: collapse; border-spacing: 0; }'
+      html += '.tg td {border-color: black; border-style: solid; border-width: 1px; font-family: Arial, sans-serif; font-size: 14px; overflow: hidden; padding: 10px 5px; word-break: normal; }'
+      html += '.tg th {border-color: black; border-style: solid; border-width: 1px; font-family: Arial, sans-serif; font-size: 14px; font-weight: normal; overflow: hidden; padding: 10px 5px; word-break: normal; }'
+      html += '.tg .tg-0lax {text-align: left;vertical-align: top}'
+      html += '</style>'
+
+      //ここから、表のコードです。
+        html += '<table class="tableizer-table">'
+        html += '<thead><tr class="tableizer-firstrow">'
+        html += '<th></th><th>我(受詞)</th><th>我們(受詞)</th> <th>你(受詞)</th><th>你們(受詞)</th> <th>他(受詞)</th> <th>他們(受詞)</th>'
+        html += '</tr></thead>'
+        html += '<tbody>'
+        html += '<tr><td>我(主詞)</td>'
+        html += '<td><input style="border:0px;" id = "table11"></td><td><input style="border:0px;" id = "table12"></td><td><input style="border:0px;" id = "table13"></td><td><input style="border:0px;" id = "table14"></td><td><input style="border:0px;" id = "table15"></td><td><input style="border:0px;" id = "table16"></td>'
+        html += '</tr><tr>'
+
+        html += '<td>我們(主詞)</td>'
+        html += '<td><input style="border:0px;" id = "table21"></td><td><input style="border:0px;" id = "table22"></td><td><input style="border:0px;" id = "table23"></td><td><input style="border:0px;" id = "table24"></td><td><input style="border:0px;" id = "table25"></td><td><input style="border:0px;" id = "table26"></td>'
+        html += '</tr><tr>'
+
+        html += '<td>你(主詞)</td>'
+        html += '<td><input style="border:0px;" id = "table31"></td><td><input style="border:0px;" id = "table32"></td><td><input style="border:0px;" id = "table33"></td><td><input style="border:0px;" id = "table34"></td><td><input style="border:0px;" id = "table35"></td><td><input style="border:0px;" id = "table36"></td>'
+        html += '</tr><tr>'
+
+        html += '<td>你們(主詞)</td>'
+        html += '<td><input style="border:0px;" id = "table41"></td><td><input style="border:0px;" id = "table42"></td><td><input style="border:0px;" id = "table43"></td><td><input style="border:0px;" id = "table44"></td><td><input style="border:0px;" id = "table45"></td><td><input style="border:0px;" id = "table46"></td>'
+        html += '</tr><tr>'
+
+        html += '<td>他(主詞)</td>'
+        html += '<td><input style="border:0px;" id = "table51"></td><td><input style="border:0px;" id = "table52"></td><td><input style="border:0px;" id = "table53"></td><td><input style="border:0px;" id = "table54"></td><td><input style="border:0px;" id = "table55"></td><td><input style="border:0px;" id = "table56"></td>'
+        html += '</tr>'
+
+        html += '<tr>'
+        html += '<td>他們(主詞)</td>'
+        html += '<td><input style="border:0px;" id = "table61"></td><td><input style="border:0px;" id = "table62"></td><td><input style="border:0px;" id = "table63"></td><td><input style="border:0px;" id = "table64"></td><td><input style="border:0px;" id = "table65"></td><td><input style="border:0px;" id = "table66"></td>'
+        html += '</tr>'
+
+        html += '</tbody></table>'
+
+
+      html +=          '<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample21" role="button" aria-expanded="false" aria-controls="multiCollapseExample21" id= "hint21" onclick = "provide_time(this.id)">這個表格是什麼？</a>'
+      html +=             '<div class="collapse multi-collapse" id="multiCollapseExample21">'
+      html +=               '<div class="card card-body">'
+      html +=                 '如果要理解主詞和受詞的關係，最簡單的方法就是來做個表格吧！首先，先把已知的主詞和受詞的組合輸入進去！'
+      html +=               '</div>'
+      html +=             '</div>'
+      html +=             '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample22" aria-expanded="false" aria-controls="multiCollapseExample22" id= "hint22" onclick = "provide_time(this.id)">填表提示</button>'
+      html +=             '<div class="collapse multi-collapse" id="multiCollapseExample22">'
+      html +=               '<div class="card card-body">'
+      html +=                 '輸入完已知的主詞和受詞之後，表格的其他空格也用同樣的規則填填看。'
+      html +=               '</div>'
+      html +=             '</div>'
+      html +=           '</div>'
+
+      html +=         '</div>'
+
+      html +=       '<div class="row">'
+      html +=         '<div class="col">'
+
+      html +=           '<h1>問題：</h1>'
+      html +=           '<p><strong>(a)翻譯成中文:</strong></p>'
+      html +=           '<p>1. nɤ ʒip ku ne</p>'
+      html +=           '<input type = "answer" id = "answer31" />'
+      html +=           '<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample31" role="button" aria-expanded="false" aria-controls="multiCollapseExample31" id= "hint31" onclick = "provide_time(this.id)">Q1提示</a>'
+      html +=           '<div class="collapse multi-collapse" id="multiCollapseExample31">'
+      html +=             '<div class="card card-body">'
+      html +=               '問題1的句子和以上例句比較之後，從那些已知的部分來解題看看。'
+      html +=             '</div>'
+      html +=           '</div>'
+
+
+      html +=           '<p>2. ati kəmə nirum lapkʰi tʰi ne</p>'
+      html +=           '<input type = "answer" id = "answer32" />'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample32" aria-expanded="false" aria-controls="multiCollapseExample32" id= "hint32" onclick = "provide_time(this.id)">Q2提示</button>'
+      html +=           '<div class="collapse multi-collapse" id="multiCollapseExample32">'
+      html +=             '<div class="card card-body">'
+      html +=               '問題2的句子也是，和上述的例句雖然也有相同的部分，但主詞和受詞的部分多利用例句來思考看看吧。'
+      html +=             '</div>'
+      html +=           '</div>'
+
+
+      html +=           '<p>3. tarum kəmə nuʔrum cʰam ran ne</p>'
+      html +=           '<input type = "answer" id = "answer33" />'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample33" aria-expanded="false" aria-controls="multiCollapseExample33" id= "hint33" onclick = "provide_time(this.id)">Q3提示</button>'
+      html +=           '<div class="collapse multi-collapse" id="multiCollapseExample33">'
+      html +=             '<div class="card card-body">'
+      html +=               '問題3的解法也是一樣的，利用例句來解題看看。'
+      html +=             '</div>'
+      html +=           '</div>'
+
+
+      html +=           '<p>4. nirum kəmə tarum lan ki ne</p>'
+      html +=           '<input type = "answer" id = "answer34" />'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample34" aria-expanded="false" aria-controls="multiCollapseExample34" id= "hint34" onclick = "provide_time(this.id)">Q4提示</button>'
+      html +=           '<div class="collapse multi-collapse" id="multiCollapseExample34">'
+      html +=             '<div class="card card-body">'
+      html +=               '主詞和動詞的部分雖然用例句就可以解出來，但受詞的部分就參考表格看看吧。'
+      html +=             '</div>'
+      html +=           '</div>'
+
+
+      html +=         '<p>5. nirum kəmə nɤ cʰam tiʔ ne</p>'
+      html +=           '<input type = "answer" id = "answer35" />'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample35" aria-expanded="false" aria-controls="multiCollapseExample35" id= "hint35" onclick = "provide_time(this.id)">Q5提示</button>'
+      html +=           '<div class="collapse multi-collapse" id="multiCollapseExample35">'
+      html +=             '<div class="card card-body">'
+      html +=               '問題5的動詞可以從例句中找到，但主詞和受詞請參考參考表格。'
+      html +=             '</div>'
+      html +=           '</div>'
+
+
+
+      html +=           '<p>6. nirum ka tiʔ ne</p>'
+      html +=           '<input type = "answer" id = "answer36" />'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample36" aria-expanded="false" aria-controls="multiCollapseExample36" id= "hint36" onclick = "provide_time(this.id)">Q6提示</button>'
+      html +=           '<div class="collapse multi-collapse" id="multiCollapseExample36">'
+      html +=             '<div class="card card-body">'
+      html +=               '雖然已經知道了問題6的動詞，不過主詞和受詞的部分，還是用表格的資訊來回答看看吧。'
+      html +=             '</div>'
+      html +=           '</div>'
+
+
+
+      html +=           '<p><strong>(b)翻譯成哈堃語:</strong></p>'
+      html +=           '<p>7. 我（過去式）打你嗎?</p>'
+      html +=           '<input type = "answer" id = "answer37" />'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample37" aria-expanded="false" aria-controls="multiCollapseExample37" id= "hint37" onclick = "provide_time(this.id)">Q7提示</button>'
+      html +=           '<div class="collapse multi-collapse" id="multiCollapseExample37">'
+      html +=             '<div class="card card-body">'
+      html +=               '主詞和受詞的部分請參考表格來回答看看。'
+      html +=             '</div>'
+      html +=           '</div>'
+
+
+      html +=           '<p>8. 他們（過去式）看見我嗎?</p>'
+      html +=           '<input type = "answer" id = "answer38" />'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample38" aria-expanded="false" aria-controls="multiCollapseExample38" id= "hint38" onclick = "provide_time(this.id)">Q8提示</button>'
+      html +=           '<div class="collapse multi-collapse" id="multiCollapseExample38">'
+      html +=             '<div class="card card-body">'
+      html +=               '問題8的句子和上方的例句雖然同樣是過去式，但主詞和受詞的部分請利用例句來想想看。'
+      html +=             '</div>'
+      html +=           '</div>'
+
+
+      html +=           '<p>9. 他知道你嗎?</p>'
+      html +=           '<input type = "answer" id = "answer39" />'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample39" aria-expanded="false" aria-controls="multiCollapseExample39" id= "hint39" onclick = "provide_time(this.id)">Q9提示</button>'
+      html +=           '<div class="collapse multi-collapse" id="multiCollapseExample39">'
+      html +=             '<div class="card card-body">'
+      html +=               '問題9的解法和問題3的解法很相似唷。'
+      html +=             '</div>'
+      html +=           '</div>'
+
+
+      html +=           '<p>10. 你們睡嗎?</p>'
+      html +=           '<input type = "answer" id = "answer310" />'
+      html +=           '<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample310" aria-expanded="false" aria-controls="multiCollapseExample310" id= "hint40" onclick = "provide_time(this.id)">Q10提示</button>'
+      html +=           '<div class="collapse multi-collapse" id="multiCollapseExample310">'
+      html +=             '<div class="card card-body">'
+      html +=               '主詞的部分請參考表格來解吧！'
+      html +=             '</div>'
+      html +=           '</div>'
+
+
+
+
+      // html +=         '</div>'
+
+      // html +=       '</div>'
+
+
+
+
+      html +=     '</div>'
+      html +=   '</div>'
+      html += '<br><br>'
+      html += '<p>Note: Hakka is a language belonging to the Sino-Tibetan language family. It is spoken by approximately 10,000 people in the easternmost part of India and the adjacent administrative region of Myanmar. The characters ə and ɤ represent vowels, while cʰ, kʰ, ŋ, tʰ, ʒ, and ʔ represent consonants.</p>'
+      html += '<p>Please remember to save the file.</p><button onclick="answerStorage()">Save</button>'
+
+      html +=   '</div>'
+
+
+
+
     }
 
     //end of stimulus
