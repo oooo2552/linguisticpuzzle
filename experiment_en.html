@@ -120,136 +120,136 @@ var task_instructions = {
 
 
   // TODO: create camera
-  var camera_instructions = {
-    type: 'html-button-response',
-    stimulus: `
+//   var camera_instructions = {
+//     type: 'html-button-response',
+//     stimulus: `
 
    
-<p>This experiment uses your webcam to track eye movements.</p>
-<p>Therefore, please grant access to the camera.</p>
-<p>If you agree to grant camera access, please allow it on the next screen.</p>
-<p>If you wish to decline camera access, you can close this screen.</p>
+// <p>This experiment uses your webcam to track eye movements.</p>
+// <p>Therefore, please grant access to the camera.</p>
+// <p>If you agree to grant camera access, please allow it on the next screen.</p>
+// <p>If you wish to decline camera access, you can close this screen.</p>
 
-    `,
-    choices: ['Click and start'],
-    post_trial_gap: 1000
-  }
-  timeline.push(camera_instructions);
+//     `,
+//     choices: ['Click and start'],
+//     post_trial_gap: 1000
+//   }
+//   timeline.push(camera_instructions);
 
-  var init_camera = {
-    type: 'webgazer-init-camera',
-    instructions: `
+  // var init_camera = {
+  //   type: 'webgazer-init-camera',
+  //   instructions: `
         
-      <p>To capture your eyes clearly with the webcam, please adjust the position of your head.</p>
-      <p>Place your face in the center and face the camera directly.</p>
-      <p>During the experiment, it's important to keep your head in a consistent position, so adjust the camera's position in a comfortable posture for using your computer.</p>
-      <p>Adjust your face within the square in the upper camera image, and once the square turns green, click "Next."</p>
-        `,
-  }
-  timeline.push(init_camera);
+  //     <p>To capture your eyes clearly with the webcam, please adjust the position of your head.</p>
+  //     <p>Place your face in the center and face the camera directly.</p>
+  //     <p>During the experiment, it's important to keep your head in a consistent position, so adjust the camera's position in a comfortable posture for using your computer.</p>
+  //     <p>Adjust your face within the square in the upper camera image, and once the square turns green, click "Next."</p>
+  //       `,
+  // }
+  // timeline.push(init_camera);
 
-  var calibration_instructions = {
-    type: 'html-button-response',
-    stimulus: `
+  // var calibration_instructions = {
+  //   type: 'html-button-response',
+  //   stimulus: `
     
-      <p>Great! Now you can use the webcam to display your gaze on the screen based on the image of your eyes. To ensure more accurate gaze measurement, we will perform calibration.</p>
-      <p>To calibrate, please click while looking at the dots displayed on the next screen.</p>
-      <p>Please try to keep your head still and click while looking at the dots.</p>
+  //     <p>Great! Now you can use the webcam to display your gaze on the screen based on the image of your eyes. To ensure more accurate gaze measurement, we will perform calibration.</p>
+  //     <p>To calibrate, please click while looking at the dots displayed on the next screen.</p>
+  //     <p>Please try to keep your head still and click while looking at the dots.</p>
 
-  `,
-    choices: ['Click and start'],
-    post_trial_gap: 1000
-  }
-  timeline.push(calibration_instructions);
-
-
-  var calibration = {
-    type: 'webgazer-calibrate',
-    calibration_points: [
-     [50,50], [25,25], [25,75], [75,25], [75,75]
-    ],
-    repetitions_per_point: 3,
-    randomize_calibration_order: true,
-  }
-  timeline.push(calibration);
+  // `,
+  //   choices: ['Click and start'],
+  //   post_trial_gap: 1000
+  // }
+  // timeline.push(calibration_instructions);
 
 
-  var validation_instructions = {
-    type: 'html-button-response',
-    stimulus: `
-      <p>Let's assess the accuracy of eye tracking.</p>
-      <p>Keep your head steady and move only your eyes. Pay attention when the dots appear.</p>
-      <p>For this session, you don't need to click the dots. Just move your eyes and look at the dots.</p>
-    `,
-    choices: ['Click and start'],
-    post_trial_gap: 1000
-  }
-  timeline.push(validation_instructions);
+  // var calibration = {
+  //   type: 'webgazer-calibrate',
+  //   calibration_points: [
+  //    [50,50], [25,25], [25,75], [75,25], [75,75]
+  //   ],
+  //   repetitions_per_point: 3,
+  //   randomize_calibration_order: true,
+  // }
+  // timeline.push(calibration);
 
 
-  var validation = {
-    type: 'webgazer-validate',
-    validation_points: [
-    [25,25], [25,75], [75,25], [75,75]
-    ],
-    roi_radius: 200,
-    time_to_saccade: 1000,
-    validation_duration: 2000,
-    data: {
-          task: 'validate'
-        },
-    show_validation_data: true,
-  }
-  timeline.push(validation);
-
-  var recalibrate_instructions = {
-        type: 'html-button-response',
-        stimulus: `
-          <p>The accuracy of the calibration is a little lower than we'd like.</p>
-          <p>Let's try calibrating one more time.</p>
-          <p>On the next screen, look at the dots and click on them.</p>
-        `,
-        choices: ['OK'],
-      }
-
-      var recalibrate = {
-        timeline: [recalibrate_instructions, calibration, validation_instructions, validation],
-      //   loop_function: function(){
-      //     var validation_data = jsPsych.data.get().filter({task: 'validate'}).values()[0];
-      //     console.log('test:', validation_data.percent_in_roi)
-      //     const minimum_percent_acceptable = (element) => element < 80
-      //     console.log('if_test:',validation_data.percent_in_roi.some(minimum_percent_acceptable))
-      //     // if(validation_data.percent_in_roi.some(minimum_percent_acceptable)){
-      //     if(jsPsych.pluginAPI.compareKeys(data.response, 'c')){
-      //       return true;
-      //     }else{
-      //       return false;
-      //     }
-      //   },
+  // var validation_instructions = {
+  //   type: 'html-button-response',
+  //   stimulus: `
+  //     <p>Let's assess the accuracy of eye tracking.</p>
+  //     <p>Keep your head steady and move only your eyes. Pay attention when the dots appear.</p>
+  //     <p>For this session, you don't need to click the dots. Just move your eyes and look at the dots.</p>
+  //   `,
+  //   choices: ['Click and start'],
+  //   post_trial_gap: 1000
+  // }
+  // timeline.push(validation_instructions);
 
 
-        conditional_function: function(){
-          var validation_data = jsPsych.data.get().filter({task: 'validate'}).values()[0];
-          return validation_data.percent_in_roi.some(function(x){
-            var minimum_percent_acceptable = 80;
-            console.log(x)
-            return x < minimum_percent_acceptable;
-          });
-        },
-        data: {
-          phase: 'recalibration'
-        }
-      }
-      timeline.push(recalibrate);
+  // var validation = {
+  //   type: 'webgazer-validate',
+  //   validation_points: [
+  //   [25,25], [25,75], [75,25], [75,75]
+  //   ],
+  //   roi_radius: 200,
+  //   time_to_saccade: 1000,
+  //   validation_duration: 2000,
+  //   data: {
+  //         task: 'validate'
+  //       },
+  //   show_validation_data: true,
+  // }
+  // timeline.push(validation);
 
-      var calibration_done = {
-        type: 'html-button-response',
-        stimulus: `
-          <p>Great, we're done with calibration!</p>
-        `,
-        choices: ['OK']
-      }
-      timeline.push(calibration_done);
+  // var recalibrate_instructions = {
+  //       type: 'html-button-response',
+  //       stimulus: `
+  //         <p>The accuracy of the calibration is a little lower than we'd like.</p>
+  //         <p>Let's try calibrating one more time.</p>
+  //         <p>On the next screen, look at the dots and click on them.</p>
+  //       `,
+  //       choices: ['OK'],
+  //     }
+
+  //     var recalibrate = {
+  //       timeline: [recalibrate_instructions, calibration, validation_instructions, validation],
+  //     //   loop_function: function(){
+  //     //     var validation_data = jsPsych.data.get().filter({task: 'validate'}).values()[0];
+  //     //     console.log('test:', validation_data.percent_in_roi)
+  //     //     const minimum_percent_acceptable = (element) => element < 80
+  //     //     console.log('if_test:',validation_data.percent_in_roi.some(minimum_percent_acceptable))
+  //     //     // if(validation_data.percent_in_roi.some(minimum_percent_acceptable)){
+  //     //     if(jsPsych.pluginAPI.compareKeys(data.response, 'c')){
+  //     //       return true;
+  //     //     }else{
+  //     //       return false;
+  //     //     }
+  //     //   },
+
+
+  //       conditional_function: function(){
+  //         var validation_data = jsPsych.data.get().filter({task: 'validate'}).values()[0];
+  //         return validation_data.percent_in_roi.some(function(x){
+  //           var minimum_percent_acceptable = 80;
+  //           console.log(x)
+  //           return x < minimum_percent_acceptable;
+  //         });
+  //       },
+  //       data: {
+  //         phase: 'recalibration'
+  //       }
+  //     }
+  //     timeline.push(recalibrate);
+
+  //     var calibration_done = {
+  //       type: 'html-button-response',
+  //       stimulus: `
+  //         <p>Great, we're done with calibration!</p>
+  //       `,
+  //       choices: ['OK']
+  //     }
+  //     timeline.push(calibration_done);
 
   // TODO: how to storage camera data
 
